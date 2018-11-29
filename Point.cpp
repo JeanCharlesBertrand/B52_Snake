@@ -4,22 +4,22 @@ Point::Point()
 {
 }
 
-int Point::getX()
+size_t Point::getX()
 {
 	return mX;
 }
 
-int Point::getY()
+size_t Point::getY()
 {
 	return mY;
 }
 
-void Point::setX(int x)
+void Point::setX(size_t x)
 {
 	mX = x;
 }
 
-void Point::setY(int y)
+void Point::setY(size_t y)
 {
 	mY = y;
 }

@@ -15,8 +15,8 @@ class Point
 {
 private:
 	// Variables
-	int mX;
-	int mY;
+	size_t mX;
+	size_t mY;
 
 public:
 	// Constructeur
@@ -24,16 +24,16 @@ public:
 
 	// Fonctions d'accès et de mutation
 	// Retourne la position mX de l'objet
-	int getX();
+	size_t getX();
 
 	// Retourne la position mY de l'objet
-	int getY();
+	size_t getY();
 
 	// Met la valeur x dans la variable mX  
-	void setX(int x);
+	void setX(size_t x);
 
 	// Met la valeur y dans la variable mY
-	void setY(int y);
+	void setY(size_t y);
 };
 
 #endif // POINT_H

@@ -1,7 +1,8 @@
 #include "Fruit.h"
 #include "RandomTools.h"
+#include "ConsoleImage.h"
 
-Fruit::Fruit(int maxX, int maxY, ConsoleColor color)
+Fruit::Fruit(size_t maxX, size_t maxY, ConsoleColor color)
 	: mColor{ color }
 {
 }
@@ -11,13 +12,13 @@ Point Fruit::getPoint()
 	return mPoint;
 }
 
-void Fruit::setPoint(int x, int y)
+void Fruit::setPoint(size_t x, size_t y)
 {
 	mPoint.setX(x);
 	mPoint.setY(y);
 }
 
-void Fruit::generate(int maxX, int maxY, int min)
+void Fruit::generate(size_t maxX, size_t maxY, size_t min)
 {
 	// Fonction pour générer aléatoirement les coordonnées x
 	// et y qui seront utilisés pour les objets Point des fruits
@@ -29,11 +30,11 @@ void Fruit::generate(int maxX, int maxY, int min)
 	setPoint(x, y);
 }
 
-void Fruit::draw()
+void Fruit::draw(ConsoleImage &image)
 {
 	// Fonction pour afficher les fruits dans l'aire de jeu;
-	// probablement utiliser la console pour ceci et voir
-	// comment approcher cette fonction de façon clean.
 
-
+	// ConsoleImage fruit{ writer.createImage("fruit") };
+	image.drawPoint(mPoint.getX(), mPoint.getY(), char(219), mColor);
+	// writer.push("fruit");
 }
