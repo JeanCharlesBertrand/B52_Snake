@@ -1,10 +1,9 @@
 #include "Fruit.h"
 #include "RandomTools.h"
 
-Fruit::Fruit(ConsoleColor color, int maxX, int maxY)
+Fruit::Fruit(int maxX, int maxY, ConsoleColor color)
 	: mColor{ color }
 {
-	generate(maxX, maxY);
 }
 
 Point Fruit::getPoint()
@@ -35,4 +34,6 @@ void Fruit::draw()
 	// Fonction pour afficher les fruits dans l'aire de jeu;
 	// probablement utiliser la console pour ceci et voir
 	// comment approcher cette fonction de façon clean.
+
+
 }

@@ -22,7 +22,7 @@ private:
 
 public:
 	// Constructeur
-	Fruit(ConsoleColor color, int maxX, int maxY);
+	Fruit(int maxX, int maxY, ConsoleColor color = (ConsoleColor::bK + ConsoleColor::tR));
 
 	// Fonctions d'accès et de mutation
 	// Retourne l'objet Point(x, y) de l'objet Fruit
