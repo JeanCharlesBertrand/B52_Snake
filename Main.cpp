@@ -23,8 +23,10 @@ int main()
 	writer.createImage("MonImage").fill(' ', ConsoleColor::bC + ConsoleColor::tY);
 	writer.push("MonImage");
 
+	ConsoleColor color{ ConsoleColor::bC + ConsoleColor::tY };
+
 	ConsoleImage & tonImage{ writer.createImage("TonImage") };
-	tonImage.fill(char(219), ConsoleColor::bC + ConsoleColor::tY);
+	tonImage.fill(char(219), color);
 	writer.push("TonImage");
 	tonImage.drawText(5,5,"allo", ConsoleColor::bK + ConsoleColor::tB);
 	writer.push("TonImage");
@@ -72,5 +74,21 @@ int main()
 		
 	}
 
+
+
+	
+
+
 	return 0;
+}
+	
+
+// Pour dessiner l'aire de jeu dans la boucle de jeu
+void f()
+{
+	ConsoleWriter & writer{ Console::getInstance().writer() };
+	writer.push("background", "output");
+	snake.draw(writer.image("output"));
+	fruit.draw(writer.image("output"));
+	writer.push("output");
 }
