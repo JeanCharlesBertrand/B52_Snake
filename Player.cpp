@@ -28,7 +28,7 @@ Player::~Player()
 }
 
 
-std::string Player::name() 
+std::string Player::getName() 
 {
 	return mName;
 };
@@ -39,7 +39,7 @@ void Player::setName(std::string inputName) {
 }; 
 
 
-int Player::lives()
+int Player::getLives()
 {
 	return mLives;
 };
@@ -51,7 +51,7 @@ void Player::setLives(int inputLives)
 };
 
 
-int Player::score()
+int Player::getScore()
 {
 	return mScore;
 };

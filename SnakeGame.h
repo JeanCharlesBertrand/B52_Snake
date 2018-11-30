@@ -1,24 +1,25 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// File name :		Main.cpp
+// File name :		Player.h
 // Creation :		2018-11-30
-// Author :			Jean-Charles Bertrand & Danick Massicotte
+// Author :			Jean-Charles Bertrand
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Context :		B52_Snake
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// Brief :			Fonction main
+// Brief :			Game entry point
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-#include <iostream>
-#include "SnakeGame.h"
+
+#ifndef SNAKEGAME_H
+#define SNAKEGAME_H
 
 
-int main(int argc, char * argv[])
+class SnakeGame
 {
+public:
+	SnakeGame();
+	void go();
+	~SnakeGame();
+};
 
-	SnakeGame snakeGame;
-	snakeGame.go();
-
-	return 0;
-}
-	
+#endif // SNAKEGAME_H
 
