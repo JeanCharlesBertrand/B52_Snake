@@ -13,6 +13,13 @@ public:
 	Menu();
 	~Menu();
 
+	void welcome();
+	void options();
+	void start();
+	void pause();
+	void instructions();
+	void quit();
+	void gameOver();
 	void onGame();
 };
 

@@ -27,17 +27,17 @@ void FSM::setCurrentState(char kbInput)
 		case 'o':
 		case 'O':
 			mCurrentState = GAMESTATE::OPTIONS;
-			//executeState();
+			executeState();
 			break;
 		case 's':
 		case 'S':
 			mCurrentState = GAMESTATE::START;
-			//executeState();
+			executeState();
 			break;
 		case 'q':
 		case 'Q':
 			mCurrentState = GAMESTATE::QUIT;
-			//executeState();
+			executeState();
 			break;
 		}
 		break;
@@ -106,7 +106,7 @@ void FSM::setCurrentState(char kbInput)
 		{
 		case 'o':
 		case 'O':
-			mCurrentState = GAMESTATE::OPTIONS;
+			mCurrentState = GAMESTATE::ONGAME;
 			executeState();
 			break;
 		case 'p':
@@ -124,26 +124,12 @@ void FSM::setCurrentState(char kbInput)
 			mCurrentState = GAMESTATE::PAUSE;
 			executeState();
 			break;
-		case 'g':
-		case 'G':
-			mCurrentState = GAMESTATE::GAMEOVER;
-			executeState();
-			break;
 		}
 		break;
 	case GAMESTATE::GAMEOVER:
 		switch (kbInput)
 		{
-		case 'w':
-		case 'W':
-			mCurrentState = GAMESTATE::WELCOME;
 			executeState();
-			break;
-		case 'q':
-		case 'Q':
-			mCurrentState = GAMESTATE::QUIT;
-			executeState();
-			break;
 		}
 		break;
 	};
@@ -154,8 +140,8 @@ void FSM::executeState()
 	switch (mCurrentState)
 	{
 	case GAMESTATE::WELCOME:
-		std::cout << "IN WELCOME" << std::endl;
-		menu.onGame();
+		//std::cout << "IN WELCOME" << std::endl;
+		menu.welcome();
 		break;
 	case GAMESTATE::OPTIONS:
 		std::cout << "IN OPTIONS" << std::endl;
@@ -170,10 +156,12 @@ void FSM::executeState()
 		std::cout << " IN QUIT" << std::endl;
 		break;
 	case GAMESTATE::START:
-		std::cout << "IN START" << std::endl;
+		//std::cout << "IN START" << std::endl;
+		menu.start();
 		break;
 	case GAMESTATE::ONGAME:
-		std::cout << "IN ONGAME" << std::endl;
+		//std::cout << "IN ONGAME" << std::endl;
+		menu.onGame();
 		break;
 	case GAMESTATE::GAMEOVER:
 		std::cout << "IN GAMEOVER" << std::endl;
