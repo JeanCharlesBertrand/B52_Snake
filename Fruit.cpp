@@ -5,6 +5,7 @@
 Fruit::Fruit(size_t maxX, size_t maxY, ConsoleColor color)
 	: mColor{ color }
 {
+	generate(maxX, maxY);
 }
 
 Point Fruit::getPoint()

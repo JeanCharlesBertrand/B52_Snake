@@ -4,10 +4,15 @@
 Snake::Snake(size_t maxX, size_t maxY, ConsoleColor color)
 	:	mColor{ color },
 		mDirection{ 'D' },
-		mSpeed{ 5 },
+		mSpeed{ 1 },
 		mAlive{ true }
 {
 	generate(maxX, maxY);
+}
+
+Snake::~Snake()
+{
+	
 }
 
 size_t Snake::getSize()
@@ -20,9 +25,14 @@ char Snake::getDirection()
 	return mDirection;
 }
 
+bool Snake::getIsAlive()
+{
+	return mAlive;
+}
+
 void Snake::generate(size_t maxX, size_t maxY)
 {
-	Point head{ maxX, maxY };
+	Point head{ (maxX / 2), (maxY / 2) };
 	mBody.push_front(head);			// Met le premier point à la tête de la liste
 }
 
@@ -32,7 +42,7 @@ void Snake::move(char direction, Fruit &fruit, Obstacle &obstacle, size_t maxX, 
 	size_t x, y;
 	direction = toupper(direction);
 
-	switch (mDirection) {
+	switch (direction) {
 	// RIGHT; 0x27 == VK_RIGHT, 0x44 == 'D'
 	case 0x27:
 	case 0x44: x = p.getX() + mSpeed;

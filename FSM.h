@@ -11,6 +11,8 @@
 #ifndef FSM_H
 #define FSM_H
 
+#include "Menu.h"
+
 class FSM
 {
 public:
@@ -35,6 +37,7 @@ public:
 
 private:
 	GAMESTATE mCurrentState;
+	Menu menu;
 };
 
 #endif // FSM_H

@@ -23,6 +23,7 @@ private:
 public:
 	// Constructeur
 	Snake(size_t maxX, size_t maxY, ConsoleColor color = (ConsoleColor::bK + ConsoleColor::tY));
+	~Snake();
 
 	// Fonctions d'accès
 	// Retourne la longueur de la liste mBody
@@ -30,6 +31,9 @@ public:
 
 	// Retourne la direction courante de l'objet Snake
 	char getDirection();
+
+	// Retourne l'état de vie du Snake
+	bool getIsAlive();
 
 	// Fonctions
 	// Génère le point du Snake initial au milieu de l'écran
