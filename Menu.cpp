@@ -27,20 +27,23 @@ void Menu::onGame()
 
 	bool b = snake.getIsAlive();
 
+	char c = ' ';
+
 	while (true) {
 		writer.push("layout", "output");
-		snake.draw(writer.image("output"));
 		fruit.draw(writer.image("output"));
+		snake.draw(writer.image("output"));
 		obstacle.draw(writer.image("output"));
 		writer.push("output");
-		
-		char c = ' ';
+
+		c = ' ';
 
 		if (_kbhit()) {
 			c = _getch();
 		}
 
 		snake.move(c, fruit, obstacle, width, height);
+		b = snake.getIsAlive();
 	}
 
 	std::cout << "AHHH";

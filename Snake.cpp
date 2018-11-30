@@ -38,39 +38,33 @@ void Snake::generate(size_t maxX, size_t maxY)
 
 void Snake::move(char direction, Fruit &fruit, Obstacle &obstacle, size_t maxX, size_t maxY)
 {
-	Point p{ mBody.back() };		// Prend les valeurs de la queue du Snake
-	size_t x, y;
+	if (direction == ' ') return;
+
+	Point p{ mBody.front() };		// Prend les valeurs de la queue du Snake
+	//size_t x{ mBody.front().getX() }, y{ mBody.front().getY() };
 	direction = toupper(direction);
 
 	switch (direction) {
 	// RIGHT; 0x27 == VK_RIGHT, 0x44 == 'D'
 	case 0x27:
-	case 0x44: x = p.getX() + mSpeed;
-			   p.setX(x);
+	case 0x44: p.setX(mBody.front().getX() + mSpeed);
 		break;
-
+			
 	// LEFT; 0x25 == VK_LEFT, 0x41 == 'A'
 	case 0x25:
-	case 0x41: x = p.getX() - mSpeed;
-			   p.setX(x);
+	case 0x41: p.setX(mBody.front().getX() - mSpeed);
 		break;
 
 	// UP; 0x26 == VK_UP, 0x57 == 'W'
 	case 0x26:
-	case 0x57: y = p.getY() - mSpeed;
-			   p.setY(y);
+	case 0x57: p.setY(mBody.front().getY() - mSpeed);
 		break;
 
 	// DOWN; 0x28 == VK_DOWN, 0x53 == 'S'
 	case 0x28:
-	case 0x53: y = p.getY() + mSpeed;
-			   p.setY(y);
+	case 0x53: p.setY(mBody.front().getY() + mSpeed);
 		break;
 	}
-
-	mDirection = direction;
-	mBody.pop_back();			// Retire l'ancienne queue du Snake de la liste
-	mBody.push_front(p);		// Met la "nouvelle" queue de la liste comme tête
 
 	// Collision avec un Fruit
 	if (touchFruit(fruit)) {
@@ -83,6 +77,10 @@ void Snake::move(char direction, Fruit &fruit, Obstacle &obstacle, size_t maxX, 
 	} else if (touchSnake()) {
 		mAlive = false;
 	}
+
+	mDirection = direction;
+	mBody.push_front(p);		// Met la "nouvelle" queue de la liste comme tête
+	mBody.pop_back();			// Retire l'ancienne queue du Snake de la liste
 }
 
 void Snake::grow()
