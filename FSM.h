@@ -1,29 +1,40 @@
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// File name :		FSM.h
+// Creation :		2018-11-30
+// Author :			Jean-Charles Bertrand
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Context :		B52_Snake
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Brief :			Final State Machine
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 #ifndef FSM_H
 #define FSM_H
 
 class FSM
 {
 public:
-	enum GAMESTATE
+	enum class GAMESTATE
 	{
-		STATE_WELCOME,
-		STATE_OPTIONS,
-		STATE_INSTRUCTIONS,
-		STATE_QUIT,
-		STATE_PAUSE,
-		STATE_EXIT,
-		STATE_START,
-		STATE_ONGAME,
-		STATE_GAMEOVER,
+		WELCOME,
+		OPTIONS,
+		INSTRUCTIONS,
+		QUIT,
+		PAUSE,
+		EXIT,
+		START,
+		ONGAME,
+		GAMEOVER,
 	};
-
-	GAMESTATE mCurrentState;
-
 
 	FSM();
 	~FSM();
 	GAMESTATE getCurrentState();
-	void setCurrentState(GAMESTATE inputState);
+	void setCurrentState(char input);
+	void executeState();
+
+private:
+	GAMESTATE mCurrentState;
 };
 
 #endif // FSM_H
