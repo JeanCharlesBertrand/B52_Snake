@@ -13,7 +13,7 @@
 
 #include "Point.h"
 #include "ConsoleColor.h"
-#include "ConsoleWriter.h"
+#include "ConsoleImage.h"
 
 class Fruit
 {

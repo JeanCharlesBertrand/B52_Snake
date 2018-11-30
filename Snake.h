@@ -4,6 +4,8 @@
 #include <list>
 #include <Windows.h>
 #include "Point.h"
+#include "Fruit.h"
+#include "Obstacle.h"
 #include "ConsoleColor.h"
 #include "ConsoleImage.h"
 #include "ConsoleKeyReader.h"
@@ -20,7 +22,14 @@ private:
 
 public:
 	// Constructeur
-	Snake(size_t maxX, size_t maxY, char direction = 'd', ConsoleColor color = (ConsoleColor::bK + ConsoleColor::tY));
+	Snake(size_t maxX, size_t maxY, ConsoleColor color = (ConsoleColor::bK + ConsoleColor::tY));
+
+	// Fonctions d'accès
+	// Retourne la longueur de la liste mBody
+	size_t getSize();
+
+	// Retourne la direction courante de l'objet Snake
+	char getDirection();
 
 	// Fonctions
 	// Génère le point du Snake initial au milieu de l'écran
@@ -34,6 +43,9 @@ public:
 
 	// Dessine l'objet Snake à l'écran
 	void draw(ConsoleImage &image);
+
+	// Vérifie si le Snake touche à un objet ou non
+	// void touchItem(Fruit &fruit, Obstacle &obstacle);
 };
 
 #endif // SNAKE_H
