@@ -6,6 +6,7 @@
 #include "Point.h"
 #include "ConsoleColor.h"
 #include "ConsoleImage.h"
+#include "ConsoleKeyReader.h"
 
 class Snake
 {
@@ -22,13 +23,16 @@ public:
 	Snake(size_t maxX, size_t maxY, char direction = 'd', ConsoleColor color = (ConsoleColor::bK + ConsoleColor::tY));
 
 	// Fonctions
-	// Fonction qui ajoute des Points au mBody et augmente la vitesse de l'objet Snake
-	void growSnake();
+	// Génère le point du Snake initial au milieu de l'écran
+	void generate(size_t maxX, size_t maxY);
 
-	// Fonction qui déplace le corps de l'objet Snake
+	// Déplace le corps de l'objet Snake selon les entrées au clavier du joueur
 	void move(char direction);
 
-	// Fonction qui permet de dessiner l'objet Snake
+	// Ajoute des Points au mBody et augmente la vitesse de l'objet Snake
+	void grow();
+
+	// Dessine l'objet Snake à l'écran
 	void draw(ConsoleImage &image);
 };
 

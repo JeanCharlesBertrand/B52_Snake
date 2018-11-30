@@ -21,6 +21,7 @@ private:
 public:
 	// Constructeur
 	Point();
+	Point(size_t x, size_t y);
 
 	// Fonctions d'accès et de mutation
 	// Retourne la position mX de l'objet

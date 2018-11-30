@@ -4,6 +4,12 @@ Point::Point()
 {
 }
 
+Point::Point(size_t x, size_t y)
+	:	mX{ x },
+		mY{ y }
+{
+}
+
 size_t Point::getX()
 {
 	return mX;
