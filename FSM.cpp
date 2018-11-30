@@ -9,7 +9,7 @@ FSM::~FSM()
 {
 }
 
-FSM::GAMESTATE FSM::currentState()
+FSM::GAMESTATE FSM::getCurrentState()
 {
 	return mCurrentState;
 };

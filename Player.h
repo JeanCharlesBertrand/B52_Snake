@@ -7,10 +7,12 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Brief :			Classe du joueur 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
 #ifndef PLAYER_H
 #define PLAYER_H
+
+
+
+
 #include <string>
 
 class Player
@@ -27,13 +29,13 @@ public:
 	Player(std::string inputName, int inputLives, int inputScore);
 	~Player();
 
-	std::string name();						// Getter
+	std::string getName();						// Getter
 	void setName(std::string inputName);	// Setter
 
-	int lives();
+	int getLives();
 	void setLives(int inputLives);
 	
-	int score();
+	int getScore();
 	void setScore(int inputScore);
 };
 

@@ -3,7 +3,7 @@
 
 class FSM
 {
-private:
+public:
 	enum GAMESTATE
 	{
 		STATE_WELCOME,
@@ -19,10 +19,10 @@ private:
 
 	GAMESTATE mCurrentState;
 
-public:
+
 	FSM();
 	~FSM();
-	GAMESTATE currentState();
+	GAMESTATE getCurrentState();
 	void setCurrentState(GAMESTATE inputState);
 };
 
