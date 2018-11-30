@@ -36,7 +36,7 @@ public:
 	void generate(size_t maxX, size_t maxY);
 
 	// Déplace le corps de l'objet Snake selon les entrées au clavier du joueur
-	void move(char direction);
+	void move(char direction, Fruit &fruit, Obstacle &obstacle, size_t maxX, size_t maxY);
 
 	// Ajoute des Points au mBody et augmente la vitesse de l'objet Snake
 	void grow();
@@ -44,8 +44,14 @@ public:
 	// Dessine l'objet Snake à l'écran
 	void draw(ConsoleImage &image);
 
-	// Vérifie si le Snake touche à un objet ou non
-	// void touchItem(Fruit &fruit, Obstacle &obstacle);
+	// Vérifie si le Snake touche à un objet Fruit
+	bool touchFruit(Fruit &fruit);
+
+	// Vérifie si le Snake touche à un objet Obstacle
+	bool touchWall(Obstacle &obstacle);
+
+	// Vérifie si le Snake entre en collision avec lui-même
+	bool touchSnake();
 };
 
 #endif // SNAKE_H

@@ -1,4 +1,5 @@
 #include "Snake.h"
+#include <iterator>
 
 Snake::Snake(size_t maxX, size_t maxY, ConsoleColor color)
 	:	mColor{ color },
@@ -25,7 +26,7 @@ void Snake::generate(size_t maxX, size_t maxY)
 	mBody.push_front(head);			// Met le premier point à la tête de la liste
 }
 
-void Snake::move(char direction)
+void Snake::move(char direction, Fruit &fruit, Obstacle &obstacle, size_t maxX, size_t maxY)
 {
 	Point p{ mBody.back() };		// Prend les valeurs de la queue du Snake
 	size_t x, y;
@@ -60,6 +61,18 @@ void Snake::move(char direction)
 	mDirection = direction;
 	mBody.pop_back();			// Retire l'ancienne queue du Snake de la liste
 	mBody.push_front(p);		// Met la "nouvelle" queue de la liste comme tête
+
+	// Collision avec un Fruit
+	if (touchFruit(fruit)) {
+		grow();
+		fruit.generate(maxX, maxY);
+	// Collision avec un Obstacle
+	} else if (touchWall(obstacle)) {
+		mAlive = false;
+	// Collision avec lui-même
+	} else if (touchSnake()) {
+		mAlive = false;
+	}
 }
 
 void Snake::grow()
@@ -76,7 +89,36 @@ void Snake::draw(ConsoleImage &image)
 	}
 }
 
-/*void Snake::touchItem(Fruit &fruit, Obstacle &obstacle)
+bool Snake::touchFruit(Fruit &fruit)
 {
-	// À FAIRE
-}*/
+	// Compare la position (x, y) de l'objet Fruit à la tête du Snake (premier point)
+	if (mBody.front().getX() == fruit.getPoint().getX() && 
+			mBody.front().getY() == fruit.getPoint().getY()) {
+		return true;
+	}
+
+	return false;
+}
+
+bool Snake::touchWall(Obstacle &obstacle)
+{
+	for (auto p : obstacle.getWalls()) {
+		if (mBody.front().getX() == p.getX() &&
+			mBody.front().getY() == p.getY()) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+bool Snake::touchSnake()
+{
+	for (auto p = std::next(mBody.begin()); p != mBody.end(); ++p) {
+		if (mBody.front().getX() == p->getX() && mBody.front().getY() == p->getY()) {
+			return true;
+		}
+	}
+
+	return false;
+}
