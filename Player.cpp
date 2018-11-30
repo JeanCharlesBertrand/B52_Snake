@@ -1,18 +1,24 @@
+
 #include "Player.h"
 
 Player::Player()
-	:mName{ "Player1" }, mLives{ 3 }, mScore{0}
+	: Player{ "Player", 3, 0 }
 {
 }
 
 Player::Player(std::string inputName)
-	: mName(inputName), mLives{3}, mScore{ 0 }
+	: Player{ inputName, 3, 0 }
 {
 }
 
 
-Player::Player(std::string inputName, int inputLives = 3)
-	:mName(inputName), mLives(inputLives), mScore{0}
+Player::Player(std::string inputName, int inputLives)
+	: Player{ inputName, inputLives, 0 }
+{
+}
+
+Player::Player(std::string inputName, int inputLives, int inputScore)
+	:mName{ inputName }, mLives{ inputLives }, mScore{ inputScore }
 {
 }
 
