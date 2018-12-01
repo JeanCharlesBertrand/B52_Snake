@@ -5,7 +5,7 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Context :		B52_Snake
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// Brief :			Classe contenant les données de coordonnées. 
+// Brief :			Classe contenant les données et fonctions des coordonnées. 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 #ifndef POINT_H
@@ -19,9 +19,10 @@ private:
 	size_t mY;
 
 public:
-	// Constructeur
+	// Constructeur et Destructeur
 	Point();
 	Point(size_t x, size_t y);
+	~Point();
 
 	// Fonctions d'accès et de mutation
 	// Retourne la position mX de l'objet

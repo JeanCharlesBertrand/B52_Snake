@@ -1,3 +1,14 @@
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// File name :		Obstacle.h
+// Creation :		2018-11-28
+// Author :			Danick Massicotte
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Context :		B52_Snake
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Brief :			Classe contenant les données et fonctions des objets 
+//					Obstacles. 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 #ifndef OBSTACLE_H
 #define OBSTACLE_H
 
@@ -13,8 +24,9 @@ private:
 	ConsoleColor mColor;
 
 public:
-	// Constructeur
+	// Constructeur et Destructeur
 	Obstacle(size_t maxX, size_t maxY, ConsoleColor color = (ConsoleColor::bK + ConsoleColor::tw));
+	~Obstacle();
 
 	// Fonction d'accès
 	std::list<Point> getWalls();

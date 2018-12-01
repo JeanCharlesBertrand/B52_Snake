@@ -85,19 +85,30 @@ void Menu::onGame()
 	Obstacle obstacle{ width, height };
 	Snake snake{ width, height };
 	Fruit fruit{ snake.getBody(), obstacle.getWalls(), width, height };
+	char direction{ ' ' };
 
-	//bool b = snake.getIsAlive();
-	char c = ' ';
-
-	while (true) {
-		c = ' ';
+	do {
+		direction = ' ';		// Patch pour ne pas aller à la vitesse lumière; enlever quand timer fait
 
 		//processInput
 		if (_kbhit()) {
-			c = _getch();
+			direction = _getch();
+			direction = toupper(direction);
+
+			// Vérifie que le Snake ne fait pas un 180 sur lui-même.
+			// Pas super clean à mon avis, it doit y avoir une façon moins
+			// cheap de faire ça; à revoir...	--DM
+			if (snake.getDirection() == 'D' && direction == 'A') {
+				direction = ' ';
+			} else if (snake.getDirection() == 'A' && direction == 'D') {
+				direction = ' ';
+			} else if (snake.getDirection() == 'W' && direction == 'S') {
+				direction = ' ';
+			} else if (snake.getDirection() == 'S' && direction == 'W') {
+				direction = ' ';
+			}
 		}
 		
-
 		//render
 		writer.push("layout", "output");
 		fruit.draw(writer.image("output"));
@@ -106,9 +117,9 @@ void Menu::onGame()
 		writer.push("output");
 
 		//update
-		snake.move(c, fruit, obstacle, width, height);
-		//b = snake.getIsAlive();
-	}
+		snake.move(direction, fruit, obstacle, width, height);
+
+	} while (snake.getIsAlive());
 
 	// Structure pour le gameloop avec controle de temps
 	/*

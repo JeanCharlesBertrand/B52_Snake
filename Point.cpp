@@ -1,5 +1,6 @@
 #include "Point.h"
 
+
 Point::Point()
 {
 }
@@ -7,6 +8,10 @@ Point::Point()
 Point::Point(size_t x, size_t y)
 	:	mX{ x },
 		mY{ y }
+{
+}
+
+Point::~Point()
 {
 }
 

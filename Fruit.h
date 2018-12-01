@@ -24,9 +24,10 @@ private:
 	ConsoleColor mColor;
 
 public:
-	// Constructeur
+	// Constructeur et Destructeur
 	Fruit(std::list<Point> snake, std::list<Point> obstacle, 
 		size_t maxX, size_t maxY, ConsoleColor color = (ConsoleColor::bK + ConsoleColor::tR));
+	~Fruit();
 
 	// Fonctions d'accès et de mutation
 	// Retourne l'objet Point(x, y) de l'objet Fruit
@@ -36,14 +37,14 @@ public:
 	void setPoint(size_t x, size_t y);
 
 	// Fonctions de la classe
-	// Fonction qui génère aléatoirement des nombre; utilisée pour la position du fruit
+	// Génère aléatoirement des nombre; utilisée pour la position du fruit
 	void generate(std::list<Point> snake, std::list<Point> obstacle, size_t maxX, size_t maxY, size_t min = 0);
-
-	// Fonction qui permet de dessiner l'objet Fruit
-	void draw(ConsoleImage &image);
 
 	// Vérifie si la position pour Fruit est libre
 	bool checkPosition(std::list<Point> snake, std::list<Point> obstacle, int x, int y);
+
+	// Dessine l'objet Fruit à l'écran
+	void draw(ConsoleImage &image);
 };
 
 #endif // FRUIT_H

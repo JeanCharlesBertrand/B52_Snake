@@ -2,10 +2,15 @@
 #include "RandomTools.h"
 #include "ConsoleImage.h"
 
+
 Fruit::Fruit(std::list<Point> snake, std::list<Point> obstacle, size_t maxX, size_t maxY, ConsoleColor color)
 	: mColor{ color }
 {
 	generate(snake, obstacle, maxX, maxY);
+}
+
+Fruit::~Fruit()
+{
 }
 
 Point Fruit::getPoint()
@@ -21,14 +26,12 @@ void Fruit::setPoint(size_t x, size_t y)
 
 void Fruit::generate(std::list<Point> snake, std::list<Point> obstacle, size_t maxX, size_t maxY, size_t min)
 {
-	// Fonction pour générer aléatoirement les coordonnées x
-	// et y qui seront utilisés pour les objets Point des fruits
-	// créés.
-
 	int x{ RandomTools::randomValue(min, maxX - 1) };
 	int y{ RandomTools::randomValue(min, maxY - 1) };
 	bool freePosition{ checkPosition(snake, obstacle, x, y) };
 
+	// Tant que la position aléatoire n'est pas libre, redonne des
+	// nouvelles coordonnées
 	while (!freePosition) {
 		x = RandomTools::randomValue(min, maxX - 1);
 		y = RandomTools::randomValue(min, maxY - 1);
@@ -36,15 +39,6 @@ void Fruit::generate(std::list<Point> snake, std::list<Point> obstacle, size_t m
 	}
 
 	setPoint(x, y);
-}
-
-void Fruit::draw(ConsoleImage &image)
-{
-	// Fonction pour afficher les fruits dans l'aire de jeu;
-
-	// ConsoleImage fruit{ writer.createImage("fruit") };
-	image.drawPoint(mPoint.getX(), mPoint.getY(), char(219), mColor);
-	// writer.push("fruit");
 }
 
 bool Fruit::checkPosition(std::list<Point> snake, std::list<Point> obstacle, int x, int y)
@@ -78,4 +72,9 @@ bool Fruit::checkPosition(std::list<Point> snake, std::list<Point> obstacle, int
 	}
 
 	return true;		// Si aucune des conditions précédentes n'a été trouvées; position libre
+}
+
+void Fruit::draw(ConsoleImage &image)
+{
+	image.drawPoint(mPoint.getX(), mPoint.getY(), char(219), mColor);
 }

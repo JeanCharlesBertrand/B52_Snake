@@ -1,3 +1,14 @@
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// File name :		Snake.h
+// Creation :		2018-11-28
+// Author :			Danick Massicotte
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Context :		B52_Snake
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Brief :			Classe contenant les données et fonctions des objets 
+//					Snake. 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 #ifndef SNAKE_H
 #define SNAKE_H
 
@@ -21,22 +32,19 @@ private:
 	bool mAlive;
 
 public:
-	// Constructeur
+	// Constructeur et Destructeur
 	Snake(size_t maxX, size_t maxY, ConsoleColor color = (ConsoleColor::bK + ConsoleColor::tY));
 	~Snake();
 
 	// Fonctions d'accès
-	// Retourne la longueur de la liste mBody
-	size_t getSize();
-
-	// Retourne la direction courante de l'objet Snake
-	char getDirection();
-
+	// Retourne la liste de Point mBody du Snake
+	std::list<Point> getBody();
+	
 	// Retourne l'état de vie du Snake
 	bool getIsAlive();
 
-	// Retourne la liste de Point mBody du Snake
-	std::list<Point> getBody();
+	// Retourne la direction courante de l'objet Snake
+	char getDirection();
 
 	// Fonctions
 	// Génère le point du Snake initial au milieu de l'écran
@@ -48,9 +56,6 @@ public:
 	// Ajoute des Points au mBody et augmente la vitesse de l'objet Snake
 	void grow();
 
-	// Dessine l'objet Snake à l'écran
-	void draw(ConsoleImage &image);
-
 	// Vérifie si le Snake touche à un objet Fruit
 	bool touchFruit(Fruit &fruit);
 
@@ -59,6 +64,9 @@ public:
 
 	// Vérifie si le Snake entre en collision avec lui-même
 	bool touchSnake();
+
+	// Dessine l'objet Snake à l'écran
+	void draw(ConsoleImage &image);
 };
 
 #endif // SNAKE_H
