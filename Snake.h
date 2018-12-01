@@ -35,6 +35,9 @@ public:
 	// Retourne l'état de vie du Snake
 	bool getIsAlive();
 
+	// Retourne la liste de Point mBody du Snake
+	std::list<Point> getBody();
+
 	// Fonctions
 	// Génère le point du Snake initial au milieu de l'écran
 	void generate(size_t maxX, size_t maxY);

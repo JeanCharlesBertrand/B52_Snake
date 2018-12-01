@@ -82,13 +82,11 @@ void Menu::onGame()
 
 	size_t width = layout.width();
 	size_t height = layout.height();
-	Snake snake{ width, height };
-	Fruit fruit{ width, height };
 	Obstacle obstacle{ width, height };
+	Snake snake{ width, height };
+	Fruit fruit{ snake.getBody(), obstacle.getWalls(), width, height };
 
-	bool b = snake.getIsAlive();
-	char c = ' ';
-
+	//bool b = snake.getIsAlive();
 	char c = ' ';
 
 	while (true) {
@@ -109,7 +107,7 @@ void Menu::onGame()
 
 		//update
 		snake.move(c, fruit, obstacle, width, height);
-		b = snake.getIsAlive();
+		//b = snake.getIsAlive();
 	}
 
 	// Structure pour le gameloop avec controle de temps

@@ -30,6 +30,11 @@ bool Snake::getIsAlive()
 	return mAlive;
 }
 
+std::list<Point> Snake::getBody()
+{
+	return mBody;
+}
+
 void Snake::generate(size_t maxX, size_t maxY)
 {
 	Point head{ (maxX / 2), (maxY / 2) };
@@ -69,7 +74,7 @@ void Snake::move(char direction, Fruit &fruit, Obstacle &obstacle, size_t maxX, 
 	// Collision avec un Fruit
 	if (touchFruit(fruit)) {
 		grow();
-		fruit.generate(maxX, maxY);
+		fruit.generate(mBody, obstacle.getWalls(), maxX, maxY);
 	// Collision avec un Obstacle
 	} else if (touchWall(obstacle)) {
 		mAlive = false;
