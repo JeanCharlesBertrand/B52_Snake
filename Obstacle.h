@@ -33,7 +33,7 @@ public:
 
 	// Fonctions
 	// Génère les obstacles du niveau
-	void generate(size_t maxX, size_t maxY);
+	void generate1(size_t maxX, size_t maxY);
 
 	// Dessine les points de l'objet Obstacle
 	void draw(ConsoleImage &image);

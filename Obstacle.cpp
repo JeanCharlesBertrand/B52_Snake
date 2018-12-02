@@ -1,9 +1,15 @@
 #include "Obstacle.h"
+#include "LevelTools.h"
+#include <fstream>
+#include <string>
+
+using namespace std;
 
 Obstacle::Obstacle(size_t maxX, size_t maxY, ConsoleColor color)
 	:	mColor{ color }
 {
-	generate(maxX, maxY);
+	mWalls = generate(maxX, maxY, 2);
+	//generate(maxX, maxY);
 }
 
 Obstacle::~Obstacle()
@@ -15,7 +21,7 @@ std::list<Point> Obstacle::getWalls()
 	return mWalls;
 }
 
-void Obstacle::generate(size_t maxX, size_t maxY)
+void Obstacle::generate1(size_t maxX, size_t maxY)
 {
 	size_t xGapTop{ (maxX / 2) - 3 };
 	size_t xGapBottom{ (maxX / 2) + 3 };
