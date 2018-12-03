@@ -42,9 +42,22 @@ void Snake::generate(size_t maxX, size_t maxY)
 
 void Snake::move(char direction, Fruit &fruit, Obstacle &obstacle, size_t maxX, size_t maxY)
 {
-	if (direction == ' ') return;	// patch; à arranger plus tard
-
 	Point p{ mBody.front() };		// Prend les valeurs de la queue du Snake
+
+	// Vérifie que le Snake ne fasse pas un 180 et ne revienne
+	// pas sur lui-même
+	if (mDirection == 'D' && direction == 'A') {
+		direction = 'D';
+
+	} else if (mDirection == 'A' && direction == 'D') {
+		direction = 'A';
+
+	} else if (mDirection == 'W' && direction == 'S') {
+		direction = 'W';
+
+	} else if (mDirection == 'S' && direction == 'W') {
+		direction = 'S';
+	}
 
 	// Déplace le point p de la valeur vitesse selon la direction
 	// de l'input au clavier; vérifie si la tête de Snake dépasse

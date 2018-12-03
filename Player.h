@@ -21,6 +21,7 @@ private:
 	std::string mName;
 	int mLives;
 	int mScore;
+	int mLevel;
 	
 public:
 	Player();
@@ -37,6 +38,9 @@ public:
 	
 	int getScore();
 	void setScore(int inputScore);
+
+	int getLevel();
+	void setLevel(int level);
 };
 
 #endif // PLAYER_H

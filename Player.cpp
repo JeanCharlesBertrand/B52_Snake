@@ -2,12 +2,16 @@
 #include "Player.h"
 
 Player::Player()
-	: Player{ "Player", 3, 0 }
+	: mName{ "Player" },
+	mLives{ 3 },
+	mScore{ 0 },
+	mLevel{ 1 }
+	//Player{ "Player", 3, 0, 1 }
 {
 }
 
 Player::Player(std::string inputName)
-	: Player{ inputName, 3, 0 }
+	: Player{ inputName, 3, 0, 1 }
 {
 }
 
@@ -18,7 +22,7 @@ Player::Player(std::string inputName, int inputLives)
 }
 
 Player::Player(std::string inputName, int inputLives, int inputScore)
-	:mName{ inputName }, mLives{ inputLives }, mScore{ inputScore }
+	:mName{ inputName }, mLives{ inputLives }, mScore{ inputScore }, mLevel{ 1 }
 {
 }
 
@@ -61,3 +65,14 @@ void Player::setScore(int inputScore)
 {
 	mScore = inputScore;
 };
+
+
+int Player::getLevel()
+{
+	return mLevel;
+}
+
+void Player::setLevel(int level)
+{
+	mLevel = level;
+}

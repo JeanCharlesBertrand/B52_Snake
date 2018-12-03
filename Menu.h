@@ -5,6 +5,7 @@
 #include "Snake.h"
 #include "Fruit.h"
 #include "Obstacle.h"
+#include "Player.h"
 #include "Console"
 
 class Menu
@@ -20,6 +21,6 @@ public:
 	void instructions();
 	void quit();
 	void gameOver();
-	void onGame();
+	void onGame(Player &player);
 };
 

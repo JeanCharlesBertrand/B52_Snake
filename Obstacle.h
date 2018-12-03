@@ -25,16 +25,13 @@ private:
 
 public:
 	// Constructeur et Destructeur
-	Obstacle(size_t maxX, size_t maxY, ConsoleColor color = (ConsoleColor::bK + ConsoleColor::tw));
+	Obstacle(size_t maxX, size_t maxY, int level, ConsoleColor color = (ConsoleColor::bK + ConsoleColor::tw));
 	~Obstacle();
 
 	// Fonction d'accès
 	std::list<Point> getWalls();
 
 	// Fonctions
-	// Génère les obstacles du niveau
-	void generate1(size_t maxX, size_t maxY);
-
 	// Dessine les points de l'objet Obstacle
 	void draw(ConsoleImage &image);
 };

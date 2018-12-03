@@ -82,14 +82,14 @@ void Menu::gameOver()
 {
 };
 
-void Menu::onGame()
+void Menu::onGame(Player &player)
 {
 	ConsoleKeyReader & reader{ Console::getInstance().keyReader() };
 	ConsoleWriter & writer{ Console::getInstance().writer() };
 	ConsoleImage layout{ writer.createImage("layout") };
 	ConsoleImage output{ writer.createImage("output") };
 
-	ElapsedTimer timer;
+	ElapsedTimer<> timer;
 	double currentTime{};
 	double previousTime{};
 	double dt{};
@@ -99,13 +99,13 @@ void Menu::onGame()
 
 	size_t width = layout.width();
 	size_t height = layout.height();
-	Obstacle obstacle{ width, height };
+	Obstacle obstacle{ width, height, player.getLevel() };
 	Snake snake{ width, height };
 	Fruit fruit{ snake.getBody(), obstacle.getWalls(), width, height };
 	char direction{ ' ' };
 
 	timer.start();
-	
+
 	do {
 
 		currentTime = timer.elapsedSeconds();
@@ -121,22 +121,6 @@ void Menu::onGame()
 		if (_kbhit()) {
 			direction = _getch();
 			direction = toupper(direction);
-
-			// Vérifie que le Snake ne fait pas un 180 sur lui-même.
-			// Pas super clean à mon avis, it doit y avoir une façon moins
-			// cheap de faire ça; à revoir...	--DM
-			if (snake.getDirection() == 'D' && direction == 'A') {
-				direction = ' ';
-			}
-			else if (snake.getDirection() == 'A' && direction == 'D') {
-				direction = ' ';
-			}
-			else if (snake.getDirection() == 'W' && direction == 'S') {
-				direction = ' ';
-			}
-			else if (snake.getDirection() == 'S' && direction == 'W') {
-				direction = ' ';
-			}
 		}
 
 		if (totalTime > 1.1) {
@@ -158,6 +142,5 @@ void Menu::onGame()
 			frameCounter++;
 		}
 
-	} while (snake.getIsAlive());
-
+	} while (snake.getIsAlive() && snake.getBody().size() < 212);
 }
