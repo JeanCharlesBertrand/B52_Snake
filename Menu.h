@@ -22,5 +22,8 @@ public:
 	void quit();
 	void gameOver();
 	void onGame();
+	void splashLevel1();
+	void splashlevel2();
+	void splashlevel3();
 };
 
