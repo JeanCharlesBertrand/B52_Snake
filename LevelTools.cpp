@@ -14,7 +14,7 @@ std::list<Point> generate(size_t maxX, size_t maxY, int level)
 		// Niveau 1
 		for (size_t i = 0; i < maxX; ++i) {
 			if (i < xGapTop || i > xGapBottom) {
-				Point p1{ i, 0 };
+				Point p1{ i, 3 };
 				Point p2{ i, maxY - 1 };
 
 				list.push_back(p1);		// Créé le mur du haut
@@ -22,7 +22,7 @@ std::list<Point> generate(size_t maxX, size_t maxY, int level)
 			}
 		}
 
-		for (size_t i = 0; i < maxY; ++i) {
+		for (size_t i = 3; i < maxY; ++i) {
 			if (i < yGapTop || i > yGapBottom) {
 				Point p1{ 0, i };
 				Point p2{ maxX - 1, i };
@@ -37,7 +37,7 @@ std::list<Point> generate(size_t maxX, size_t maxY, int level)
 		// Niveau 2
 		for (size_t i = 0; i < maxX; ++i) {
 			if (i < xGapTop || i > xGapBottom) {
-				Point p1{ i, 0 };
+				Point p1{ i, 3 };
 				Point p2{ i, maxY - 1 };
 
 				list.push_back(p1);		// Créé le mur du haut
@@ -45,7 +45,7 @@ std::list<Point> generate(size_t maxX, size_t maxY, int level)
 			}
 		}
 
-		for (size_t i = 0; i < maxY; ++i) {
+		for (size_t i = 3; i < maxY; ++i) {
 			if (i < yGapTop || i > yGapBottom) {
 				Point p1{ 0, i };
 				Point p2{ maxX - 1, i };
@@ -59,7 +59,7 @@ std::list<Point> generate(size_t maxX, size_t maxY, int level)
 			list.push_back({ i, yGapBottom + 1 });
 		}
 
-		for (size_t i = 0; i < maxY; ++i) {
+		for (size_t i = 3; i < maxY; ++i) {
 			list.push_back({ (xGapBottom + 1), i });
 		}
 

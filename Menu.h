@@ -21,6 +21,6 @@ public:
 	void instructions();
 	void quit();
 	void gameOver();
-	void onGame(Player &player);
+	void onGame();
 };
 

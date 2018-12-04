@@ -85,7 +85,7 @@ void Snake::move(char direction, Fruit &fruit, Obstacle &obstacle, size_t maxX, 
 		// UP
 	case 'W':
 		// Transtypage de size_t à int pour permettre y < 0
-		if (((int)mBody.front().getY() - mSpeed) < 0) {
+		if (((int)mBody.front().getY() - mSpeed) < 3) {
 			p.setY(maxY - 1);
 		} else {
 			p.setY(mBody.front().getY() - mSpeed);
@@ -95,7 +95,7 @@ void Snake::move(char direction, Fruit &fruit, Obstacle &obstacle, size_t maxX, 
 		// DOWN
 	case 'S':
 		if ((mBody.front().getY() + mSpeed) >= maxY) {
-			p.setY(0);
+			p.setY(3);
 		} else {
 			p.setY(mBody.front().getY() + mSpeed);
 		}

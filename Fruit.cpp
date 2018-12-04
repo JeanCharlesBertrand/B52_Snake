@@ -27,14 +27,14 @@ void Fruit::setPoint(size_t x, size_t y)
 void Fruit::generate(std::list<Point> snake, std::list<Point> obstacle, size_t maxX, size_t maxY, size_t min)
 {
 	int x{ RandomTools::randomValue(min, maxX - 1) };
-	int y{ RandomTools::randomValue(min, maxY - 1) };
+	int y{ RandomTools::randomValue(min + 3, maxY - 1) };
 	bool freePosition{ checkPosition(snake, obstacle, x, y) };
 
 	// Tant que la position aléatoire n'est pas libre, redonne des
 	// nouvelles coordonnées
 	while (!freePosition) {
 		x = RandomTools::randomValue(min, maxX - 1);
-		y = RandomTools::randomValue(min, maxY - 1);
+		y = RandomTools::randomValue(min + 3, maxY - 1);
 		freePosition = checkPosition(snake, obstacle, x, y);
 	}
 
