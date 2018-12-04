@@ -64,7 +64,7 @@ std::list<Point> generate(size_t maxX, size_t maxY, int level)
 		}
 
 		break;
-	case 3:
+	case 0:
 		break;
 	}
 

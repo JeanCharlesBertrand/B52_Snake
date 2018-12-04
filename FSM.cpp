@@ -129,6 +129,15 @@ void FSM::setCurrentState(char kbInput, Player &player)
 	case GAMESTATE::GAMEOVER:
 		switch (kbInput)
 		{
+		case 'W':
+		case 'w':
+			mCurrentState = GAMESTATE::WELCOME;
+			executeState(player);
+			break;
+
+		case 'Q':
+		case 'q':
+			mCurrentState = GAMESTATE::QUIT;
 			executeState(player);
 		}
 		break;
@@ -157,7 +166,7 @@ void FSM::executeState(Player &player)
 		break;
 	case GAMESTATE::START:
 		//std::cout << "IN START" << std::endl;
-		menu.start(player.getLevel());
+		menu.start((player.getLevel() % 3));
 		break;
 	case GAMESTATE::ONGAME:
 		//std::cout << "IN ONGAME" << std::endl;
@@ -165,9 +174,16 @@ void FSM::executeState(Player &player)
 		if (player.getLives() > 0) {
 			mCurrentState = GAMESTATE::START;
 			executeState(player);
+		} else if (player.getLives() == 0) {
+			mCurrentState = GAMESTATE::GAMEOVER;
+			executeState(player);
 		}
 		break;
 	case GAMESTATE::GAMEOVER:
+		player.setLevel(1);
+		player.setLives(3);
+		player.setScore(0);
+		menu.gameOver();
 		std::cout << "IN GAMEOVER" << std::endl;
 		break;
 	};

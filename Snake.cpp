@@ -4,7 +4,6 @@
 
 Snake::Snake(size_t maxX, size_t maxY, ConsoleColor color)
 	: mColor{ color },
-	mDirection{ ' ' },
 	mSpeed{ 1 },
 	mAlive{ true }
 {
