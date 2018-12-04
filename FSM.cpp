@@ -17,7 +17,7 @@ FSM::GAMESTATE FSM::getCurrentState()
 };
 
 
-void FSM::setCurrentState(char kbInput)
+void FSM::setCurrentState(char kbInput, Player &player)
 {
 	switch (mCurrentState)
 	{
@@ -27,17 +27,17 @@ void FSM::setCurrentState(char kbInput)
 		case 'o':
 		case 'O':
 			mCurrentState = GAMESTATE::OPTIONS;
-			executeState();
+			executeState(player);
 			break;
 		case 's':
 		case 'S':
 			mCurrentState = GAMESTATE::START;
-			executeState();
+			executeState(player);
 			break;
 		case 'q':
 		case 'Q':
 			mCurrentState = GAMESTATE::QUIT;
-			executeState();
+			executeState(player);
 			break;
 		}
 		break;
@@ -47,12 +47,12 @@ void FSM::setCurrentState(char kbInput)
 		case 'i':
 		case 'I':
 			mCurrentState = GAMESTATE::INSTRUCTIONS;
-			executeState();
+			executeState(player);
 			break;
 		case 'w':
 		case 'W':
 			mCurrentState = GAMESTATE::WELCOME;
-			executeState();
+			executeState(player);
 			break;
 		}
 		break;
@@ -62,7 +62,7 @@ void FSM::setCurrentState(char kbInput)
 		case 'o':
 		case 'O':
 			mCurrentState = GAMESTATE::OPTIONS;
-			executeState();
+			executeState(player);
 			break;
 		}
 		break;
@@ -72,17 +72,17 @@ void FSM::setCurrentState(char kbInput)
 		case 'w':
 		case 'W':
 			mCurrentState = GAMESTATE::WELCOME;
-			executeState();
+			executeState(player);
 			break;
 		case 'o':
 		case 'O':
 			mCurrentState = GAMESTATE::ONGAME;
-			executeState();
+			executeState(player);
 			break;
 		case 'q':
 		case 'Q':
 			mCurrentState = GAMESTATE::QUIT;
-			executeState();
+			executeState(player);
 			break;
 		}
 		break;
@@ -92,12 +92,12 @@ void FSM::setCurrentState(char kbInput)
 		case 'w':
 		case 'W':
 			mCurrentState = GAMESTATE::WELCOME;
-			executeState();
+			executeState(player);
 			break;
 		case 'e':
 		case 'E':
 			mCurrentState = GAMESTATE::EXIT;
-			executeState();
+			executeState(player);
 			break;
 		}
 		break;
@@ -107,12 +107,12 @@ void FSM::setCurrentState(char kbInput)
 		case 'o':
 		case 'O':
 			mCurrentState = GAMESTATE::ONGAME;
-			executeState();
+			executeState(player);
 			break;
 		case 'p':
 		case 'P':
 			mCurrentState = GAMESTATE::PAUSE;
-			executeState();
+			executeState(player);
 			break;
 		}
 		break;
@@ -122,20 +122,20 @@ void FSM::setCurrentState(char kbInput)
 		case 'p':
 		case 'P':
 			mCurrentState = GAMESTATE::PAUSE;
-			executeState();
+			executeState(player);
 			break;
 		}
 		break;
 	case GAMESTATE::GAMEOVER:
 		switch (kbInput)
 		{
-			executeState();
+			executeState(player);
 		}
 		break;
 	};
 };
 
-void FSM::executeState() 
+void FSM::executeState(Player &player) 
 {
 	switch (mCurrentState)
 	{
@@ -161,7 +161,7 @@ void FSM::executeState()
 		break;
 	case GAMESTATE::ONGAME:
 		//std::cout << "IN ONGAME" << std::endl;
-		menu.onGame();
+		menu.onGame(player);
 		break;
 	case GAMESTATE::GAMEOVER:
 		std::cout << "IN GAMEOVER" << std::endl;

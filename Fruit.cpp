@@ -4,7 +4,8 @@
 
 
 Fruit::Fruit(std::list<Point> snake, std::list<Point> obstacle, size_t maxX, size_t maxY, ConsoleColor color)
-	: mColor{ color }
+	: mColor{ color },
+	mValue{ 10 }
 {
 	generate(snake, obstacle, maxX, maxY);
 }
@@ -22,6 +23,11 @@ void Fruit::setPoint(size_t x, size_t y)
 {
 	mPoint.setX(x);
 	mPoint.setY(y);
+}
+
+int Fruit::getValue()
+{
+	return mValue;
 }
 
 void Fruit::generate(std::list<Point> snake, std::list<Point> obstacle, size_t maxX, size_t maxY, size_t min)

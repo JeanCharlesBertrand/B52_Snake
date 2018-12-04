@@ -14,6 +14,8 @@
 
 
 #include <string>
+#include "ConsoleImage.h"
+#include "ConsoleColor.h"
 
 class Player
 {
@@ -41,6 +43,8 @@ public:
 
 	int getLevel();
 	void setLevel(int level);
+
+	void draw(ConsoleImage &image);
 };
 
 #endif // PLAYER_H

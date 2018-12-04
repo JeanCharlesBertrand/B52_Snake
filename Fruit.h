@@ -22,6 +22,7 @@ private:
 	// Variables
 	Point mPoint;
 	ConsoleColor mColor;
+	int mValue;
 
 public:
 	// Constructeur et Destructeur
@@ -35,6 +36,9 @@ public:
 	
 	// Met les coordonnées x et y dans l'objet Point de l'objet Fruit
 	void setPoint(size_t x, size_t y);
+
+	// Retourne la valeur d'un Fruit (pour scores)
+	int getValue();
 
 	// Fonctions de la classe
 	// Génère aléatoirement des nombre; utilisée pour la position du fruit

@@ -32,8 +32,8 @@ public:
 	FSM();
 	~FSM();
 	GAMESTATE getCurrentState();
-	void setCurrentState(char input);
-	void executeState();
+	void setCurrentState(char input, Player &player);
+	void executeState(Player &player);
 
 private:
 	GAMESTATE mCurrentState;

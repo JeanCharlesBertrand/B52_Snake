@@ -7,6 +7,7 @@
 
 
 SnakeGame::SnakeGame()
+	: player{ }
 {
 	ConsoleContext context(120, 40, "B52_SNAKE", 0, 16, L"Consolas");
 	Console::defineContext(context);
@@ -26,13 +27,13 @@ void SnakeGame::go()
 	char kbInput = ' ';
 	std::cout << "Entrer une touche" << std::endl;
 
-	fsm.executeState();
+	fsm.executeState(player);
 
 	// Loop de menu du jeu
 	do {
 		if (_kbhit()) {
 			kbInput = _getch();
-			fsm.setCurrentState(kbInput);
+			fsm.setCurrentState(kbInput, player);
 		}
 
 		kbInput = ' ';

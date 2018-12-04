@@ -82,7 +82,7 @@ void Menu::gameOver()
 {
 };
 
-void Menu::onGame()
+void Menu::onGame(Player &player)
 {
 	ConsoleKeyReader & reader{ Console::getInstance().keyReader() };
 	ConsoleWriter & writer{ Console::getInstance().writer() };
@@ -99,7 +99,7 @@ void Menu::onGame()
 
 	size_t width = layout.width();
 	size_t height = layout.height();
-	Obstacle obstacle{ width, height, 1 };
+	Obstacle obstacle{ width, height, 2 };
 	Snake snake{ width, height };
 	Fruit fruit{ snake.getBody(), obstacle.getWalls(), width, height };
 	char direction{ ' ' };
@@ -126,12 +126,13 @@ void Menu::onGame()
 		if (totalTime > 1.1) {
 			totalTime = 0;
 			// UPDATE()
-			snake.move(direction, fruit, obstacle, width, height);
+			snake.move(direction, player, fruit, obstacle, width, height);
 		}
 
 		if (frameCounter >= renderFrameCount) {
 			// RENDER()
 			writer.push("layout", "output");
+			player.draw(writer.image("output"));
 			fruit.draw(writer.image("output"));
 			snake.draw(writer.image("output"));
 			obstacle.draw(writer.image("output"));

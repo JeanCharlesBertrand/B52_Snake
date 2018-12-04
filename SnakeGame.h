@@ -12,9 +12,13 @@
 #ifndef SNAKEGAME_H
 #define SNAKEGAME_H
 
+#include "Player.h"
 
 class SnakeGame
 {
+private:
+	Player player;
+
 public:
 	SnakeGame();
 	void go();
