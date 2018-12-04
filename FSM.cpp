@@ -157,7 +157,7 @@ void FSM::executeState(Player &player)
 		break;
 	case GAMESTATE::START:
 		//std::cout << "IN START" << std::endl;
-		menu.start();
+		menu.start(player.getLevel());
 		break;
 	case GAMESTATE::ONGAME:
 		//std::cout << "IN ONGAME" << std::endl;

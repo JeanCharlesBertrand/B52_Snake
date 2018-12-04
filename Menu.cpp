@@ -52,18 +52,104 @@ void Menu::welcome()
 
 };
 
+void Menu::splashLevel1()
+{
+	ConsoleWriter & writer{ Console::getInstance().writer() };
+	ConsoleImage & splash{ writer.createImage("splash") };
+	splash.fill(char(219), ConsoleColor::bK + ConsoleColor::tK);
+	writer.push("splash");
+	splash.drawText(30, 10, " 888      8888888888 888     888 8888888888 888            d888    ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 11, " 888      888        888     888 888        888           d8888    ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 12, " 888      888        888     888 888        888             888    ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 13, " 888      8888888    Y88b   d88P 8888888    888             888    ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 14, " 888      888         Y88b d88P  888        888             888    ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 15, " 888      888          Y88o88P   888        888             888    ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 16, " 888      888           Y888P    888        888             888    ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 17, " 88888888 8888888888     Y8P     8888888888 88888888      8888888  ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 18, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 19, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 20, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 21, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 22, "Appuyer sur la touche 'O' pour commencer", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 23, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 24, "", ConsoleColor::bK + ConsoleColor::tW);
+	writer.push("splash");
+};
+
+void Menu::splashLevel2()
+{
+	ConsoleWriter & writer{ Console::getInstance().writer() };
+	ConsoleImage & splash{ writer.createImage("splash") };
+	splash.fill(char(219), ConsoleColor::bK + ConsoleColor::tK);
+	writer.push("splash");
+	splash.drawText(30, 10, " 888      8888888888 888     888 8888888888 888            .d8888b.     ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 11, " 888      888        888     888 888        888           d88P  Y88b    ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 12, " 888      888        888     888 888        888                  888    ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 13, " 888      8888888    Y88b   d88P 8888888    888                .d88P    ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 14, " 888      888         Y88b d88P  888        888            .od888P      ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 15, " 888      888          Y88o88P   888        888           d88P          ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 16, " 888      888           Y888P    888        888           888           ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 17, " 88888888 8888888888     Y8P     8888888888 88888888      888888888     ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 18, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 19, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 20, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 21, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 22, "Appuyer sur la touche 'O' pour commencer", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 23, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 24, "", ConsoleColor::bK + ConsoleColor::tW);
+	writer.push("splash");
+};
+
+void Menu::splashLevel3()
+{
+	ConsoleWriter & writer{ Console::getInstance().writer() };
+	ConsoleImage & splash{ writer.createImage("splash") };
+	splash.fill(char(219), ConsoleColor::bK + ConsoleColor::tK);
+	writer.push("splash");
+	splash.drawText(30, 5, " 888      8888888888 888     888 8888888888 888            .d8888b.    ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 5, " 888      888        888     888 888        888           d88P  Y88b   ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 5, " 888      888        888     888 888        888                .d88P   ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 5, " 888      8888888    Y88b   d88P 8888888    888               8888     ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 5, " 888      888         Y88b d88P  888        888                 Y8b    ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 5, " 888      888          Y88o88P   888        888           888    888   ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 5, " 888      888           Y888P    888        888           Y88b  d88P   ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 5, " 88888888 8888888888     Y8P     8888888888 88888888       Y8888P      ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 18, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 19, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 20, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 21, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 22, "Appuyer sur la touche 'O' pour commencer", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 23, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 24, "", ConsoleColor::bK + ConsoleColor::tW);
+	writer.push("splash");
+};
+
 void Menu::options()
 {
 };
 
-void Menu::start()
+void Menu::start(int inputLevel)
 {
-	ConsoleWriter & writer{ Console::getInstance().writer() };
+	switch (inputLevel) {
+	// LEVEL 1
+	case 1: splashLevel1();
+		break;
+
+	// LEVEL 2
+	case 2: splashLevel2();
+		break;
+
+	//Level 3
+	case 3: splashLevel3();
+		break;
+	}
+
+	/*ConsoleWriter & writer{ Console::getInstance().writer() };
 	ConsoleImage & start{ writer.createImage("start") };
 	start.fill(char(219), ConsoleColor::bC + ConsoleColor::tY);
 	writer.push("start");
 	start.drawText(5, 5, "allo", ConsoleColor::bK + ConsoleColor::tB);
-	writer.push("start");
+	writer.push("start");*/
 };
 
 void Menu::pause()
@@ -143,5 +229,5 @@ void Menu::onGame(Player &player)
 			frameCounter++;
 		}
 
-	} while (snake.getIsAlive() && snake.getBody().size() < 212);
+	} while (snake.getBody().size() < 212);
 }

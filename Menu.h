@@ -16,11 +16,14 @@ public:
 
 	void welcome();
 	void options();
-	void start();
+	void start(int inputLevel);
 	void pause();
 	void instructions();
 	void quit();
 	void gameOver();
 	void onGame(Player &player);
+	void splashLevel1();
+	void splashLevel2();
+	void splashLevel3();
 };
 
