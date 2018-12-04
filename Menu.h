@@ -20,10 +20,11 @@ public:
 	void pause();
 	void instructions();
 	void quit();
-	void gameOver();
+	void gameOver(Player &player);
 	void onGame(Player &player);
 	void splashLevel1();
 	void splashLevel2();
 	void splashLevel3();
+	void splashGameOver();
 };
 

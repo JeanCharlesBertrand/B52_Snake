@@ -130,14 +130,14 @@ void Menu::splashGameOver()
 	ConsoleImage & splash{ writer.createImage("splash") };
 	splash.fill(char(219), ConsoleColor::bK + ConsoleColor::tK);
 	writer.push("splash");
-	splash.drawText(30, 10, "  .d8888b.         d8888 888b     d888 8888888888        d88888b   888     888 8888888888 8888888b.       888  ", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 11, " d88P  Y88b       d88888 8888b   d8888 888             d88P   Y88b 888     888 888        888   Y88b      888  ", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 12, " 888    888      d88P888 88888b.d88888 888             888     888 888     888 888        888    888      888  ", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 13, " 888            d88P 888 888Y88888P888 8888888         888     888 Y88b   d88P 8888888    888   d88P      888  ", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 14, " 888  88888    d88P  888 888 Y888P 888 888             888     888  Y88b d88P  888        8888888P        888  ", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 15, " 888    888   d88P   888 888  Y8P  888 888             888     888   Y88o88P   888        888 T88b        Y8P  ", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 16, " Y88b  d88P  d8888888888 888       888 888             Y88b   d88P    Y888P    888        888  T88b            ", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 17, "   Y8888P88 d88P     888 888       888 8888888888        Y88888P       Y8P     8888888888 888   T88b      888  ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(10, 10, "  .d8888b.         d8888 888b     d888 8888888888        d88888b   888     888 8888888888 8888888b.   ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(10, 11, " d88P  Y88b       d88888 8888b   d8888 888             d88P   Y88b 888     888 888        888   Y88b  ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(10, 12, " 888    888      d88P888 88888b.d88888 888             888     888 888     888 888        888    888  ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(10, 13, " 888            d88P 888 888Y88888P888 8888888         888     888 Y88b   d88P 8888888    888   d88P  ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(10, 14, " 888  88888    d88P  888 888 Y888P 888 888             888     888  Y88b d88P  888        8888888P    ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(10, 15, " 888    888   d88P   888 888  Y8P  888 888             888     888   Y88o88P   888        888 T88b    ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(10, 16, " Y88b  d88P  d8888888888 888       888 888             Y88b   d88P    Y888P    888        888  T88b   ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(10, 17, "   Y8888P88 d88P     888 888       888 8888888888        Y88888P       Y8P     8888888888 888   T88b  ", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 18, "", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 19, "", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 20, "Appuyer sur la touche 'Q' pour quitter", ConsoleColor::bK + ConsoleColor::tW);
@@ -208,8 +208,12 @@ void Menu::quit()
 {
 };
 
-void Menu::gameOver()
+void Menu::gameOver(Player &player)
 {
+	player.setLives(3);
+	player.setLevel(1);
+	player.setScore(0);
+	splashGameOver();
 };
 
 void Menu::onGame(Player &player)
