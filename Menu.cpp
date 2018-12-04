@@ -185,10 +185,11 @@ void Menu::onGame(Player &player)
 
 	size_t width = layout.width();
 	size_t height = layout.height();
-	Obstacle obstacle{ width, height, 2 };
+	Obstacle obstacle{ width, height, player.getLevel() };
 	Snake snake{ width, height };
 	Fruit fruit{ snake.getBody(), obstacle.getWalls(), width, height };
 	char direction{ ' ' };
+	int levelScore{ 0 };
 
 	timer.start();
 
@@ -212,13 +213,13 @@ void Menu::onGame(Player &player)
 		if (totalTime > 1.1) {
 			totalTime = 0;
 			// UPDATE()
-			snake.move(direction, player, fruit, obstacle, width, height);
+			snake.move(direction, levelScore, fruit, obstacle, width, height);
 		}
 
 		if (frameCounter >= renderFrameCount) {
 			// RENDER()
 			writer.push("layout", "output");
-			player.draw(writer.image("output"));
+			player.draw(writer.image("output"), levelScore);
 			fruit.draw(writer.image("output"));
 			snake.draw(writer.image("output"));
 			obstacle.draw(writer.image("output"));
@@ -229,5 +230,13 @@ void Menu::onGame(Player &player)
 			frameCounter++;
 		}
 
-	} while (snake.getBody().size() < 212);
+	} while (snake.getIsAlive() && snake.getBody().size() < 212);
+
+	if (snake.getBody().size() < 212) {
+		player.setLives(player.getLives() - 1);
+		levelScore = 0;
+	} else {
+		player.setLevel(player.getLevel() + 1);
+		player.setScore(player.getScore() + levelScore + 150);
+	}
 }

@@ -73,10 +73,10 @@ void Player::setLevel(int inputLevel)
 	mLevel = inputLevel;
 }
 
-void Player::draw(ConsoleImage &image)
+void Player::draw(ConsoleImage &image, int levelScore)
 {
 	ConsoleColor color{ ConsoleColor::bK + ConsoleColor::tW };
-	std::string score{ "Score: " + std::to_string(mScore) };
+	std::string score{ "Score: " + std::to_string(mScore + levelScore) };
 	std::string lives{ "Vies: " + std::to_string(mLives) };
 	std::string level{ "Niveau " + std::to_string(mLevel) };
 

@@ -16,7 +16,6 @@
 #include <Windows.h>
 #include "Point.h"
 #include "Fruit.h"
-#include "Player.h"
 #include "Obstacle.h"
 #include "ConsoleColor.h"
 #include "ConsoleImage.h"
@@ -52,7 +51,7 @@ public:
 	void generate(size_t maxX, size_t maxY);
 
 	// Déplace le corps de l'objet Snake selon les entrées au clavier du joueur
-	void move(char direction, Player &player, Fruit &fruit, Obstacle &obstacle, size_t maxX, size_t maxY);
+	void move(char direction, int &levelScore, Fruit &fruit, Obstacle &obstacle, size_t maxX, size_t maxY);
 
 	// Ajoute des Points au mBody et augmente la vitesse de l'objet Snake
 	void grow();

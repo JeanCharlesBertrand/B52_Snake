@@ -40,7 +40,7 @@ void Snake::generate(size_t maxX, size_t maxY)
 	}
 }
 
-void Snake::move(char direction, Player &player, Fruit &fruit, Obstacle &obstacle, size_t maxX, size_t maxY)
+void Snake::move(char direction, int &levelScore, Fruit &fruit, Obstacle &obstacle, size_t maxX, size_t maxY)
 {
 	Point p{ mBody.front() };		// Prend les valeurs de la queue du Snake
 
@@ -108,7 +108,7 @@ void Snake::move(char direction, Player &player, Fruit &fruit, Obstacle &obstacl
 
 	if (touchFruit(fruit)) {							// Collision avec un Fruit
 		grow();
-		player.setScore(player.getScore() + fruit.getValue());
+		levelScore += fruit.getValue();
 		fruit.generate(mBody, obstacle.getWalls(), maxX, maxY);
 
 	} else if (touchWall(obstacle)) {					// Collision avec un Obstacle

@@ -162,6 +162,10 @@ void FSM::executeState(Player &player)
 	case GAMESTATE::ONGAME:
 		//std::cout << "IN ONGAME" << std::endl;
 		menu.onGame(player);
+		if (player.getLives() > 0) {
+			mCurrentState = GAMESTATE::START;
+			executeState(player);
+		}
 		break;
 	case GAMESTATE::GAMEOVER:
 		std::cout << "IN GAMEOVER" << std::endl;

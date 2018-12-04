@@ -45,7 +45,7 @@ public:
 	int getLevel();
 	void setLevel(int inputLevel);
 
-	void draw(ConsoleImage &image);
+	void draw(ConsoleImage &image, int levelScore);
 };
 
 #endif // PLAYER_H
