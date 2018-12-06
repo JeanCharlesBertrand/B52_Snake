@@ -184,7 +184,7 @@ void Menu::start(int inputLevel)
 		break;
 
 	//Level 3
-	case 3: splashLevel3();
+	case 0: splashLevel3();
 		break;
 	}
 
@@ -233,11 +233,16 @@ void Menu::onGame(Player &player)
 
 	size_t width = layout.width();
 	size_t height = layout.height();
-	Obstacle obstacle{ width, height, 0 };
+	Obstacle obstacle{ width, height, player.getLevel() % 3 };
 	Snake snake{ width, height };
 	Fruit fruit{ snake.getBody(), obstacle.getWalls(), width, height };
 	char direction{ ' ' };
 	int levelScore{ 0 };
+
+	// Si le niveau du joueur est > 3; augmente la vitesse du Snake de + 1
+	/*if (player.getLevel() % 3 == 1 && player.getLevel() > 1) {
+		snake.setSpeed(snake.getSpeed() + 1);
+	}*/
 
 	timer.start();
 

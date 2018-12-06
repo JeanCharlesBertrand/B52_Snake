@@ -29,6 +29,16 @@ char Snake::getDirection()
 	return mDirection;
 }
 
+int Snake::getSpeed()
+{
+	return mSpeed;
+}
+
+void Snake::setSpeed(int speed)
+{
+	mSpeed = speed;
+}
+
 void Snake::generate(size_t maxX, size_t maxY)
 {
 	Point head{ (maxX / 2), (maxY / 2) };
@@ -113,7 +123,8 @@ void Snake::move(char direction, int &levelScore, Fruit &fruit, Obstacle &obstac
 	} else if (touchWall(obstacle)) {					// Collision avec un Obstacle
 		mAlive = false;
 	
-	} else if (direction != ' ' && touchSnake()) {		// Collision avec lui-même
+	} else if ((direction == 'D' || direction == 'A' || 
+		direction == 'W' || direction == 'S') && touchSnake()) {		// Collision avec lui-même
 		mAlive = false;
 	}
 
