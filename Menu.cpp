@@ -233,7 +233,7 @@ void Menu::onGame(Player &player)
 
 	size_t width = layout.width();
 	size_t height = layout.height();
-	Obstacle obstacle{ width, height, player.getLevel() };
+	Obstacle obstacle{ width, height, 0 };
 	Snake snake{ width, height };
 	Fruit fruit{ snake.getBody(), obstacle.getWalls(), width, height };
 	char direction{ ' ' };
