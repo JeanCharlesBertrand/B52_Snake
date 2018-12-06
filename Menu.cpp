@@ -175,15 +175,15 @@ void Menu::options()
 void Menu::start(int inputLevel)
 {
 	switch (inputLevel) {
-	// LEVEL 1
+		// LEVEL 1
 	case 1: splashLevel1();
 		break;
 
-	// LEVEL 2
+		// LEVEL 2
 	case 2: splashLevel2();
 		break;
 
-	//Level 3
+		//Level 3
 	case 0: splashLevel3();
 		break;
 	}
@@ -259,8 +259,13 @@ void Menu::onGame(Player &player)
 
 		// PROCESSINPUT()
 		if (_kbhit()) {
-			direction = _getch();
-			direction = toupper(direction);
+			char temp = _getch();
+
+			// Patch pour mon laptop qui donne '\0' après un _getch()... --DM
+			if (temp != '\0') {
+				direction = temp;
+				direction = toupper(direction);
+			}
 		}
 
 		if (totalTime > 1.1) {
@@ -288,7 +293,8 @@ void Menu::onGame(Player &player)
 	if (snake.getBody().size() < 212) {
 		player.setLives(player.getLives() - 1);
 		levelScore = 0;
-	} else {
+	}
+	else {
 		player.setLevel(player.getLevel() + 1);
 		player.setScore(player.getScore() + levelScore + 150);
 	}
