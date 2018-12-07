@@ -48,8 +48,6 @@ void Menu::welcome()
 	welcome.drawText(30, 32, "", ConsoleColor::bK + ConsoleColor::tW);
 
 	writer.push("welcome");
-
-
 };
 
 void Menu::splashLevel1(Player &player)
@@ -187,13 +185,6 @@ void Menu::start(int inputLevel, Player &player)
 	case 3: splashLevel3(player);
 		break;
 	}
-
-	/*ConsoleWriter & writer{ Console::getInstance().writer() };
-	ConsoleImage & start{ writer.createImage("start") };
-	start.fill(char(219), ConsoleColor::bC + ConsoleColor::tY);
-	writer.push("start");
-	start.drawText(5, 5, "allo", ConsoleColor::bK + ConsoleColor::tB);
-	writer.push("start");*/
 };
 
 void Menu::pause()
@@ -202,6 +193,37 @@ void Menu::pause()
 
 void Menu::instructions()
 {
+	ConsoleWriter & writer{ Console::getInstance().writer() };
+	ConsoleImage & splash{ writer.createImage("splash") };
+	splash.fill(char(219), ConsoleColor::bK + ConsoleColor::tK);
+	writer.push("splash");
+	splash.drawText(20, 10, " 888    888  .d88888b.  888       888      88888888888 .d88888b.  ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 11, " 888    888 d88P   Y88b 888   o   888          888    d88P   Y88b ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 12, " 888    888 888     888 888  d8b  888          888    888     888 ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 13, " 8888888888 888     888 888 d888b 888          888    888     888 ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 14, " 888    888 888     888 888d88888b888          888    888     888 ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 15, " 888    888 888     888 88888P Y88888          888    888     888 ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 16, " 888    888 Y88b. .d88P 8888P   Y8888          888    Y88b. .d88P ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 17, " 888    888   Y88888P   888P     Y888          888      Y88888P   ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 18, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 19, "BUT DU JEU :", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 20, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 21, "   Capturez les fruits sans toucher ni les murs, ni votre propre queue! ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 22, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 23, "   Utilisez les portails afin d'atteindre les fruits plus rapidement", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 24, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 25, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 26, "Controles:", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 27, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 28, "   W - HAUT", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 29, "   S - BAS", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 30, "   A - GAUCHE", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 31, "   D - DROITE", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 32, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 33, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 34, "Appuyer sur la touche 'O' pour retourner au menu des options", ConsoleColor::bK + ConsoleColor::tW);
+	
+	writer.push("splash");
 };
 
 void Menu::quit()

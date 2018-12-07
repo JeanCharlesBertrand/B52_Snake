@@ -155,13 +155,12 @@ void FSM::executeState(Player &player)
 		menu.options();
 		break;
 	case GAMESTATE::INSTRUCTIONS:
-		std::cout << "IN INSTRUCTIONS" << std::endl;
+		menu.instructions();
 		break;
 	case GAMESTATE::PAUSE:
 		std::cout << "IN PAUSE" << std::endl;
 		break;
 	case GAMESTATE::QUIT:
-		std::cout << " IN QUIT" << std::endl;
 		break;
 	case GAMESTATE::START:
 		menu.start((player.getLevel() % 3), player);

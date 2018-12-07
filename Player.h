@@ -10,9 +10,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-
-
-
 #include <string>
 #include "ConsoleImage.h"
 #include "ConsoleColor.h"
@@ -33,8 +30,8 @@ public:
 	Player(std::string inputName, int inputLives, int inputScore, int inputLevel);
 	~Player();
 
-	std::string getName();						// Getter
-	void setName(std::string inputName);		// Setter
+	std::string getName();
+	void setName(std::string inputName);
 
 	int getLives();
 	void setLives(int inputLives);

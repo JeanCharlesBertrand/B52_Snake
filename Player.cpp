@@ -1,8 +1,7 @@
-
 #include "Player.h"
 
 Player::Player()
-	: Player { "Player", 3, 0, 1 }
+	: Player { "Player 1", 3, 0, 1 }
 {
 }
 

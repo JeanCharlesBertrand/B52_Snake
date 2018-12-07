@@ -1,3 +1,13 @@
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// File name :		FSM.h
+// Creation :		2018-11-30
+// Author :			Jean-Charles Bertrand
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Context :		B52_Snake
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Brief :			Struture des menus du jeu
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 #ifndef MENU_H
 #define MENU_H
 #endif // MENU_H
