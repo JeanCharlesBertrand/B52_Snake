@@ -14,7 +14,7 @@ Fruit::~Fruit()
 {
 }
 
-Point Fruit::getPoint()
+Point Fruit::getPoint() const
 {
 	return mPoint;
 }
@@ -25,7 +25,7 @@ void Fruit::setPoint(size_t x, size_t y)
 	mPoint.setY(y);
 }
 
-int Fruit::getValue()
+int Fruit::getValue() const
 {
 	return mValue;
 }

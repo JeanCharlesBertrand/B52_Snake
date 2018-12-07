@@ -30,16 +30,16 @@ public:
 	Player(std::string inputName, int inputLives, int inputScore, int inputLevel);
 	~Player();
 
-	std::string getName();
+	std::string getName() const;
 	void setName(std::string inputName);
 
-	int getLives();
+	int getLives() const;
 	void setLives(int inputLives);
 	
-	int getScore();
+	int getScore() const;
 	void setScore(int inputScore);
 
-	int getLevel();
+	int getLevel() const;
 	void setLevel(int inputLevel);
 
 	void draw(ConsoleImage &image, int levelScore);

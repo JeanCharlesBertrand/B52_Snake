@@ -1,4 +1,5 @@
 #include "FSM.h"
+#include "GameEngine.h"
 #include <iostream>
 
 FSM::FSM()
@@ -166,7 +167,7 @@ void FSM::executeState(Player &player)
 		menu.start((player.getLevel() % 3), player);
 		break;
 	case GAMESTATE::ONGAME:
-		menu.onGame(player);
+		engine(player);
 		if (player.getLives() > 0) {
 			mCurrentState = GAMESTATE::START;
 			executeState(player);

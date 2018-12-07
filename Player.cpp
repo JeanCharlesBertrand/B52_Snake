@@ -27,7 +27,7 @@ Player::~Player()
 }
 
 
-std::string Player::getName() 
+std::string Player::getName() const
 {
 	return mName;
 };
@@ -38,7 +38,7 @@ void Player::setName(std::string inputName) {
 }; 
 
 
-int Player::getLives()
+int Player::getLives() const
 {
 	return mLives;
 };
@@ -50,7 +50,7 @@ void Player::setLives(int inputLives)
 };
 
 
-int Player::getScore()
+int Player::getScore() const
 {
 	return mScore;
 };
@@ -62,7 +62,7 @@ void Player::setScore(int inputScore)
 };
 
 
-int Player::getLevel()
+int Player::getLevel() const
 {
 	return mLevel;
 }

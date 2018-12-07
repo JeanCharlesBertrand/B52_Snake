@@ -29,7 +29,7 @@ public:
 	~Obstacle();
 
 	// Fonction d'accès
-	std::list<Point> getWalls();
+	std::list<Point> getWalls() const;
 
 	// Fonctions
 	// Dessine les points de l'objet Obstacle

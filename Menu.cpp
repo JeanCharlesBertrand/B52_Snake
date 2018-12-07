@@ -139,9 +139,9 @@ void Menu::splashGameOver()
 	splash.drawText(10, 17, "   Y8888P88 d88P     888 888       888 8888888888        Y88888P       Y8P     8888888888 888   T88b  ", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 18, "", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 19, "", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 20, "Appuyer sur la touche 'Q' pour quitter", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 21, "", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 22, "Appuyer sur la touche 'W' pour retourner au menu principal", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 21, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 20, "Appuyer sur la touche 'Q' pour quitter", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 23, "", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 24, "", ConsoleColor::bK + ConsoleColor::tW);
 	writer.push("splash");
@@ -238,8 +238,3 @@ void Menu::gameOver(Player &player)
 	player.setScore(0);
 	splashGameOver();
 };
-
-void Menu::onGame(Player &player)
-{
-	engine(player);
-}

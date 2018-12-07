@@ -50,7 +50,7 @@ void engine(Player &player)
 		if (totalTime > 1.1) {
 			totalTime = 0;
 			// UPDATE()
-			snake.move(direction, levelScore, fruit, obstacle, width, height);
+			snake.move(direction, levelScore, fruit, obstacle.getWalls(), width, height);
 		}
 
 		if (frameCounter >= renderFrameCount) {

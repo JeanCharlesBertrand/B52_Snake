@@ -32,13 +32,13 @@ public:
 
 	// Fonctions d'accès et de mutation
 	// Retourne l'objet Point(x, y) de l'objet Fruit
-	Point getPoint();
+	Point getPoint() const;
 	
 	// Met les coordonnées x et y dans l'objet Point de l'objet Fruit
 	void setPoint(size_t x, size_t y);
 
 	// Retourne la valeur d'un Fruit (pour scores)
-	int getValue();
+	int getValue() const;
 
 	// Fonctions de la classe
 	// Génère aléatoirement des nombre; utilisée pour la position du fruit

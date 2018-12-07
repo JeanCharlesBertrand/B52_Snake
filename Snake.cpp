@@ -14,22 +14,22 @@ Snake::~Snake()
 {
 }
 
-std::list<Point> Snake::getBody()
+std::list<Point> Snake::getBody() const
 {
 	return mBody;
 }
 
-bool Snake::getIsAlive()
+bool Snake::getIsAlive() const
 {
 	return mAlive;
 }
 
-char Snake::getDirection()
+char Snake::getDirection() const
 {
 	return mDirection;
 }
 
-int Snake::getSpeed()
+int Snake::getSpeed() const
 {
 	return mSpeed;
 }
@@ -49,22 +49,32 @@ void Snake::generate(size_t maxX, size_t maxY)
 	}
 }
 
-void Snake::move(char direction, int &levelScore, Fruit &fruit, Obstacle &obstacle, size_t maxX, size_t maxY)
+void Snake::move(char direction, int &levelScore, Fruit &fruit, 
+				 std::list<Point> const &obstacle, size_t maxX, size_t maxY)
 {
-	Point p{ mBody.front() };		// Prend les valeurs de la queue du Snake
+	inputVerification(direction);				// Vérification des inputs du joueur
+	mBody.push_front(movement(maxX, maxY));		// Met une nouvelle tête au début de la liste
+	mBody.pop_back();							// Retire le dernier point de la liste du Snake
+	checkCollisions(direction, levelScore, fruit, obstacle, maxX, maxY);		// Vérification des collisions possibles de la tête avec d'autres objets
+}
 
+void Snake::inputVerification(char &direction)
+{
 	// Vérifie que le Snake ne fasse pas un 180 et ne revienne
 	// pas sur lui-même
 	if (mDirection == 'D' && direction == 'A') {
 		direction = 'D';
 
-	} else if (mDirection == 'A' && direction == 'D') {
+	}
+	else if (mDirection == 'A' && direction == 'D') {
 		direction = 'A';
 
-	} else if (mDirection == 'W' && direction == 'S') {
+	}
+	else if (mDirection == 'W' && direction == 'S') {
 		direction = 'W';
 
-	} else if (mDirection == 'S' && direction == 'W') {
+	}
+	else if (mDirection == 'S' && direction == 'W') {
 		direction = 'S';
 	}
 
@@ -74,10 +84,15 @@ void Snake::move(char direction, int &levelScore, Fruit &fruit, Obstacle &obstac
 	case 'D':
 	case 'A':
 	case 'W':
-	case 'S': 
+	case 'S':
 		mDirection = direction;
 		break;
 	}
+}
+
+Point Snake::movement(size_t &maxX, size_t &maxY)
+{
+	Point p{ mBody.front() };		// Prend les valeurs de la queue du Snake
 
 	// Déplace le point p de la valeur vitesse selon la direction
 	// de l'input au clavier; vérifie si la tête de Snake dépasse
@@ -87,55 +102,64 @@ void Snake::move(char direction, int &levelScore, Fruit &fruit, Obstacle &obstac
 	case 'D':
 		if ((mBody.front().getX() + mSpeed) >= maxX) {
 			p.setX(0);
-		} else {
+		}
+		else {
 			p.setX(mBody.front().getX() + mSpeed);
 		}
 		break;
-		
+
 		// LEFT
 	case 'A':
 		// Transtypage de size_t à int pour permettre x < 0
 		if (((int)mBody.front().getX() - mSpeed) < 0) {
 			p.setX(maxX - 1);
-		} else {
+		}
+		else {
 			p.setX(mBody.front().getX() - mSpeed);
 		}
 		break;
-		
+
 		// UP
 	case 'W':
 		// Transtypage de size_t à int pour permettre y < 0
 		if (((int)mBody.front().getY() - mSpeed) < 3) {
 			p.setY(maxY - 1);
-		} else {
+		}
+		else {
 			p.setY(mBody.front().getY() - mSpeed);
 		}
 		break;
-		
+
 		// DOWN
 	case 'S':
 		if ((mBody.front().getY() + mSpeed) >= maxY) {
 			p.setY(3);
-		} else {
+		}
+		else {
 			p.setY(mBody.front().getY() + mSpeed);
 		}
 		break;
 	}
 
-	mBody.push_front(p);		// Met la "nouvelle" queue de la liste comme tête
-	mBody.pop_back();			// Retire l'ancienne queue du Snake de la liste
+	return p;
+}
 
-
-	if (touchFruit(fruit)) {							// Collision avec un Fruit
+void Snake::checkCollisions(char direction, int &levelScore, Fruit &fruit, 
+							std::list<Point> const &obstacle, size_t maxX, size_t maxY)
+{
+	// Collision avec un Fruit
+	if (touchFruit(fruit)) {
 		grow();
 		levelScore += fruit.getValue();
-		fruit.generate(mBody, obstacle.getWalls(), maxX, maxY);
+		fruit.generate(mBody, obstacle, maxX, maxY);
 
-	} else if (touchWall(obstacle)) {					// Collision avec un Obstacle
+	// Collision avec un Obstacle
+	} else if (touchWall(obstacle)) {	
 		mAlive = false;
-	
-	} else if ((direction == 'D' || direction == 'A' || 
-		direction == 'W' || direction == 'S') && touchSnake()) {		// Collision avec lui-même
+
+	// Collision avec lui-même
+	} else if ((direction == 'D' || direction == 'A' ||
+		direction == 'W' || direction == 'S') && touchSnake()) {
 		mAlive = false;
 	}
 }
@@ -161,10 +185,10 @@ bool Snake::touchFruit(Fruit &fruit)
 	return false;
 }
 
-bool Snake::touchWall(Obstacle &obstacle)
+bool Snake::touchWall(std::list<Point> const &obstacle)
 {
 	// Compare la position (x, y) de la tête de Snake aux points Obstacles
-	for (auto p : obstacle.getWalls()) {
+	for (auto p : obstacle) {
 		if (mBody.front().getX() == p.getX() &&
 			mBody.front().getY() == p.getY()) {
 			return true;

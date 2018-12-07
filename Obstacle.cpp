@@ -16,7 +16,7 @@ Obstacle::~Obstacle()
 {
 }
 
-std::list<Point> Obstacle::getWalls()
+std::list<Point> Obstacle::getWalls() const
 {
 	return mWalls;
 }

@@ -38,16 +38,16 @@ public:
 
 	// Fonctions d'accès
 	// Retourne la liste de Point mBody du Snake
-	std::list<Point> getBody();
+	std::list<Point> getBody() const;
 	
 	// Retourne l'état de vie du Snake
-	bool getIsAlive();
+	bool getIsAlive() const;
 
 	// Retourne la direction courante de l'objet Snake
-	char getDirection();
+	char getDirection() const;
 
 	// Retourne la vitesse courante du Snake
-	int getSpeed();
+	int getSpeed() const;
 
 	// Change la valeur mSpeed du Snake
 	void setSpeed(int speed);
@@ -57,7 +57,16 @@ public:
 	void generate(size_t maxX, size_t maxY);
 
 	// Déplace le corps de l'objet Snake selon les entrées au clavier du joueur
-	void move(char direction, int &levelScore, Fruit &fruit, Obstacle &obstacle, size_t maxX, size_t maxY);
+	void move(char direction, int &levelScore, Fruit &fruit, std::list<Point> const &obstacle, size_t maxX, size_t maxY);
+
+	// Vérifie la validité de la touche (input) du joueur
+	void inputVerification(char &direction);
+
+	// Calcule le déplacement du Snake selon la direction du Snake
+	Point movement(size_t &maxX, size_t &maxY);
+
+	// Vérifie s'il y a collision avec un objet pendant le mouvement
+	void checkCollisions(char direction, int &levelScore, Fruit &fruit, std::list<Point> const &obstacle, size_t maxX, size_t maxY);
 
 	// Ajoute des Points au mBody et augmente la vitesse de l'objet Snake
 	void grow();
@@ -66,7 +75,7 @@ public:
 	bool touchFruit(Fruit &fruit);
 
 	// Vérifie si le Snake touche à un objet Obstacle
-	bool touchWall(Obstacle &obstacle);
+	bool touchWall(std::list<Point> const &obstacle);
 
 	// Vérifie si le Snake entre en collision avec lui-même
 	bool touchSnake();
