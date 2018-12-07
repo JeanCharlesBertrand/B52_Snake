@@ -104,8 +104,8 @@ void FSM::setCurrentState(char kbInput, Player &player)
 	case GAMESTATE::START:
 		switch (kbInput)
 		{
-		case 'o':
-		case 'O':
+		case 'g':
+		case 'G':
 			mCurrentState = GAMESTATE::ONGAME;
 			executeState(player);
 			break;
@@ -164,7 +164,7 @@ void FSM::executeState(Player &player)
 		std::cout << " IN QUIT" << std::endl;
 		break;
 	case GAMESTATE::START:
-		menu.start((player.getLevel() % 3));
+		menu.start((player.getLevel() % 3), player);
 		break;
 	case GAMESTATE::ONGAME:
 		menu.onGame(player);

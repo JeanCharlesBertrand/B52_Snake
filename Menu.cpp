@@ -52,7 +52,7 @@ void Menu::welcome()
 
 };
 
-void Menu::splashLevel1()
+void Menu::splashLevel1(Player &player)
 {
 	ConsoleWriter & writer{ Console::getInstance().writer() };
 	ConsoleImage & splash{ writer.createImage("splash") };
@@ -68,15 +68,15 @@ void Menu::splashLevel1()
 	splash.drawText(30, 17, " 88888888 8888888888     Y8P     8888888888 88888888      8888888  ", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 18, "", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 19, "", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 20, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 20, "Nombre de vies : " + std::to_string(player.getLives()), ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 21, "", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 22, "Appuyer sur la touche 'O' pour commencer", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 22, "Appuyer sur la touche 'G' pour commencer", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 23, "", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 24, "", ConsoleColor::bK + ConsoleColor::tW);
 	writer.push("splash");
 };
 
-void Menu::splashLevel2()
+void Menu::splashLevel2(Player &player)
 {
 	ConsoleWriter & writer{ Console::getInstance().writer() };
 	ConsoleImage & splash{ writer.createImage("splash") };
@@ -92,15 +92,15 @@ void Menu::splashLevel2()
 	splash.drawText(30, 17, " 88888888 8888888888     Y8P     8888888888 88888888      888888888     ", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 18, "", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 19, "", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 20, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 20, "Nombre de vies : " + std::to_string(player.getLives()), ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 21, "", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 22, "Appuyer sur la touche 'O' pour commencer", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 22, "Appuyer sur la touche 'G' pour commencer", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 23, "", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 24, "", ConsoleColor::bK + ConsoleColor::tW);
 	writer.push("splash");
 };
 
-void Menu::splashLevel3()
+void Menu::splashLevel3(Player &player)
 {
 	ConsoleWriter & writer{ Console::getInstance().writer() };
 	ConsoleImage & splash{ writer.createImage("splash") };
@@ -116,9 +116,9 @@ void Menu::splashLevel3()
 	splash.drawText(30, 17, " 88888888 8888888888     Y8P     8888888888 88888888       Y8888P      ", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 18, "", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 19, "", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 20, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 20, "Nombre de vies : " + std::to_string(player.getLives()), ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 21, "", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 22, "Appuyer sur la touche 'O' pour commencer", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(30, 22, "Appuyer sur la touche 'G' pour commencer", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 23, "", ConsoleColor::bK + ConsoleColor::tW);
 	splash.drawText(30, 24, "", ConsoleColor::bK + ConsoleColor::tW);
 	writer.push("splash");
@@ -154,37 +154,37 @@ void Menu::options()
 	ConsoleImage & splash{ writer.createImage("splash") };
 	splash.fill(char(219), ConsoleColor::bK + ConsoleColor::tK);
 	writer.push("splash");
-	splash.drawText(30, 10, "  .d88888b.  8888888b. 88888888888 8888888 .d88888b.  888b    888  .d8888b.  ", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 11, " d88P   Y88b 888   Y88b    888       888  d88P   Y88b 8888b   888 d88P  Y88b ", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 12, " 888     888 888    888    888       888  888     888 88888b  888 Y88b.      ", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 13, " 888     888 888   d88P    888       888  888     888 888Y88b 888   Y888b.   ", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 14, " 888     888 8888888P      888       888  888     888 888 Y88b888      Y88b. ", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 15, " 888     888 888           888       888  888     888 888  Y88888        888 ", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 16, " Y88b. .d88P 888           888       888  Y88b. .d88P 888   Y8888 Y88b  d88P ", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 17, "   Y88888P   888           888     8888888  Y88888P   888    Y888   Y8888P   ", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 18, "", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 19, "", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 20, "Appuyer sur la touche 'I' pour voir les instructions", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 21, "", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 22, "Appuyer sur la touche 'W' pour retourner au menu principal", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 23, "", ConsoleColor::bK + ConsoleColor::tW);
-	splash.drawText(30, 24, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 10, "  .d88888b.  8888888b. 88888888888 8888888 .d88888b.  888b    888  .d8888b.  ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 11, " d88P   Y88b 888   Y88b    888       888  d88P   Y88b 8888b   888 d88P  Y88b ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 12, " 888     888 888    888    888       888  888     888 88888b  888 Y88b.      ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 13, " 888     888 888   d88P    888       888  888     888 888Y88b 888   Y888b.   ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 14, " 888     888 8888888P      888       888  888     888 888 Y88b888      Y88b. ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 15, " 888     888 888           888       888  888     888 888  Y88888        888 ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 16, " Y88b. .d88P 888           888       888  Y88b. .d88P 888   Y8888 Y88b  d88P ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 17, "   Y88888P   888           888     8888888  Y88888P   888    Y888   Y8888P   ", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 18, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 19, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 20, "Appuyer sur la touche 'I' pour voir les instructions", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 21, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 22, "Appuyer sur la touche 'W' pour retourner au menu principal", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 23, "", ConsoleColor::bK + ConsoleColor::tW);
+	splash.drawText(20, 24, "", ConsoleColor::bK + ConsoleColor::tW);
 	writer.push("splash");
 };
 
-void Menu::start(int inputLevel)
+void Menu::start(int inputLevel, Player &player)
 {
 	switch (inputLevel) {
 	// LEVEL 1
-	case 1: splashLevel1();
+	case 1: splashLevel1(player);
 		break;
 
 	// LEVEL 2
-	case 2: splashLevel2();
+	case 2: splashLevel2(player);
 		break;
 
 	//Level 3
-	case 3: splashLevel3();
+	case 3: splashLevel3(player);
 		break;
 	}
 
