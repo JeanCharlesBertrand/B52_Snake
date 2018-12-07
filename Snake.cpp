@@ -68,10 +68,21 @@ void Snake::move(char direction, int &levelScore, Fruit &fruit, Obstacle &obstac
 		direction = 'S';
 	}
 
+	// Vérifie que la touche est une direction et empêche que le Snake
+	// arrête de se déplacer si on frappe une touche non acceptée
+	switch (direction) {
+	case 'D':
+	case 'A':
+	case 'W':
+	case 'S': 
+		mDirection = direction;
+		break;
+	}
+
 	// Déplace le point p de la valeur vitesse selon la direction
 	// de l'input au clavier; vérifie si la tête de Snake dépasse
 	// les bornes du jeu et, si oui, fait un wrap-around
-	switch (direction) {
+	switch (mDirection) {
 		// RIGHT
 	case 'D':
 		if ((mBody.front().getX() + mSpeed) >= maxX) {
@@ -127,8 +138,6 @@ void Snake::move(char direction, int &levelScore, Fruit &fruit, Obstacle &obstac
 		direction == 'W' || direction == 'S') && touchSnake()) {		// Collision avec lui-même
 		mAlive = false;
 	}
-
-	mDirection = direction;
 }
 
 void Snake::grow()
