@@ -10,7 +10,7 @@
 
 #ifndef MENU_H
 #define MENU_H
-#endif // MENU_H
+
 
 #include "Snake.h"
 #include "Fruit.h"
@@ -38,3 +38,4 @@ public:
 	void splashGameOver();
 };
 
+#endif // MENU_H
