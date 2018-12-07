@@ -255,11 +255,16 @@ void Menu::onGame(Player &player)
 
 	size_t width = layout.width();
 	size_t height = layout.height();
-	Obstacle obstacle{ width, height, player.getLevel() };
+	Obstacle obstacle{ width, height, player.getLevel() % 3 };
 	Snake snake{ width, height };
 	Fruit fruit{ snake.getBody(), obstacle.getWalls(), width, height };
 	char direction{ ' ' };
 	int levelScore{ 0 };
+
+	// Si le niveau du joueur est > 3; augmente la vitesse du Snake de + 1
+	/*if (player.getLevel() % 3 == 1 && player.getLevel() > 1) {
+		snake.setSpeed(snake.getSpeed() + 1);
+	}*/
 
 	timer.start();
 
@@ -276,8 +281,13 @@ void Menu::onGame(Player &player)
 
 		// PROCESSINPUT()
 		if (_kbhit()) {
-			direction = _getch();
-			direction = toupper(direction);
+			char temp = _getch();
+
+			// Patch pour mon laptop qui donne '\0' après un _getch()... --DM
+			if (temp != '\0') {
+				direction = temp;
+				direction = toupper(direction);
+			}
 		}
 
 		if (totalTime > 1.1) {
@@ -305,7 +315,8 @@ void Menu::onGame(Player &player)
 	if (snake.getBody().size() < 212) {
 		player.setLives(player.getLives() - 1);
 		levelScore = 0;
-	} else {
+	}
+	else {
 		player.setLevel(player.getLevel() + 1);
 		player.setScore(player.getScore() + levelScore + 150);
 	}

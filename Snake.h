@@ -46,6 +46,12 @@ public:
 	// Retourne la direction courante de l'objet Snake
 	char getDirection();
 
+	// Retourne la vitesse courante du Snake
+	int getSpeed();
+
+	// Change la valeur mSpeed du Snake
+	void setSpeed(int speed);
+
 	// Fonctions
 	// Génère le point du Snake initial au milieu de l'écran
 	void generate(size_t maxX, size_t maxY);
