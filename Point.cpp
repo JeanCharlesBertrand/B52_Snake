@@ -11,10 +11,6 @@ Point::Point(size_t x, size_t y)
 {
 }
 
-Point::~Point()
-{
-}
-
 size_t Point::getX()
 {
 	return mX;

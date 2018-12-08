@@ -32,11 +32,10 @@ private:
 	bool mAlive;
 
 public:
-	// Constructeur et Destructeur
+	// Constructeur
 	Snake(size_t maxX, size_t maxY, ConsoleColor color = (ConsoleColor::bK + ConsoleColor::tY));
-	~Snake();
 
-	// Fonctions d'accès
+	// Fonctions
 	// Retourne la liste de Point mBody du Snake
 	std::list<Point> getBody() const;
 	
@@ -52,7 +51,6 @@ public:
 	// Change la valeur mSpeed du Snake
 	void setSpeed(int speed);
 
-	// Fonctions
 	// Génère le point du Snake initial au milieu de l'écran
 	void generate(size_t maxX, size_t maxY);
 

@@ -12,10 +12,6 @@ Obstacle::Obstacle(size_t maxX, size_t maxY, int level, ConsoleColor color)
 	//generate(maxX, maxY);
 }
 
-Obstacle::~Obstacle()
-{
-}
-
 std::list<Point> Obstacle::getWalls() const
 {
 	return mWalls;

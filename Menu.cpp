@@ -8,11 +8,6 @@ Menu::Menu()
 {
 }
 
-
-Menu::~Menu()
-{
-}
-
 void Menu::welcome()
 {
 	ConsoleWriter & writer{ Console::getInstance().writer() };
@@ -190,6 +185,7 @@ void Menu::start(int inputLevel, Player &player)
 
 void Menu::pause()
 {
+	// Pause de la game loop; pas encore fait
 };
 
 void Menu::instructions()

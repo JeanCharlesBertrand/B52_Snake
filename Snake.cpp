@@ -10,10 +10,6 @@ Snake::Snake(size_t maxX, size_t maxY, ConsoleColor color)
 	generate(maxX, maxY);
 }
 
-Snake::~Snake()
-{
-}
-
 std::list<Point> Snake::getBody() const
 {
 	return mBody;
@@ -55,7 +51,7 @@ void Snake::move(char direction, int &levelScore, Fruit &fruit,
 	inputVerification(direction);				// Vérification des inputs du joueur
 	mBody.push_front(movement(maxX, maxY));		// Met une nouvelle tête au début de la liste
 	mBody.pop_back();							// Retire le dernier point de la liste du Snake
-	checkCollisions(direction, levelScore, fruit, obstacle, maxX, maxY);		// Vérification des collisions possibles de la tête avec d'autres objets
+	checkCollisions(direction, levelScore, fruit, obstacle, maxX, maxY);	// Vérification des collisions possibles de la tête avec d'autres objets
 }
 
 void Snake::inputVerification(char &direction)

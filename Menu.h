@@ -1,5 +1,5 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// File name :		FSM.h
+// File name :		Menu.h
 // Creation :		2018-11-30
 // Author :			Jean-Charles Bertrand
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -22,7 +22,6 @@ class Menu
 {
 public:
 	Menu();
-	~Menu();
 
 	void welcome();
 	void options();
@@ -31,7 +30,6 @@ public:
 	void instructions();
 	void quit();
 	void gameOver(Player &player);
-	void onGame(Player &player);
 	void splashLevel1(Player &player);
 	void splashLevel2(Player &player);
 	void splashLevel3(Player &player);

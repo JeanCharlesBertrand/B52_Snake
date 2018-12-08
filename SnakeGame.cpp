@@ -14,10 +14,6 @@ SnakeGame::SnakeGame()
 }
 
 
-SnakeGame::~SnakeGame()
-{
-}
-
 void SnakeGame::go()
 {
 	

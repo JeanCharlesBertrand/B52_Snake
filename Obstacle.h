@@ -24,14 +24,12 @@ private:
 	ConsoleColor mColor;
 
 public:
-	// Constructeur et Destructeur
+	// Constructeur
 	Obstacle(size_t maxX, size_t maxY, int level, ConsoleColor color = (ConsoleColor::bK + ConsoleColor::tw));
-	~Obstacle();
 
-	// Fonction d'accès
+	// Fonction
 	std::list<Point> getWalls() const;
 
-	// Fonctions
 	// Dessine les points de l'objet Obstacle
 	void draw(ConsoleImage &image);
 };

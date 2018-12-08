@@ -22,11 +22,6 @@ Player::Player(std::string inputName, int inputLives, int inputScore, int inputL
 }
 
 
-Player::~Player()
-{
-}
-
-
 std::string Player::getName() const
 {
 	return mName;

@@ -5,7 +5,7 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Context :		B52_Snake
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// Brief :			Final State Machine
+// Brief :			Finite-State Machine
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 #ifndef FSM_H
@@ -30,9 +30,14 @@ public:
 	};
 
 	FSM();
-	~FSM();
+
+	// Retourne le state présent
 	GAMESTATE getCurrentState();
+
+	// Change le state du FSM selon la touche appuyée et selon le state présent
 	void setCurrentState(char input, Player &player);
+
+	// Exécute les commandes reliées au state présent
 	void executeState(Player &player);
 
 private:

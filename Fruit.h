@@ -25,12 +25,11 @@ private:
 	int mValue;
 
 public:
-	// Constructeur et Destructeur
+	// Constructeur
 	Fruit(std::list<Point> snake, std::list<Point> obstacle, 
 		size_t maxX, size_t maxY, ConsoleColor color = (ConsoleColor::bK + ConsoleColor::tR));
-	~Fruit();
 
-	// Fonctions d'accès et de mutation
+	// Fonctions
 	// Retourne l'objet Point(x, y) de l'objet Fruit
 	Point getPoint() const;
 	
@@ -40,7 +39,6 @@ public:
 	// Retourne la valeur d'un Fruit (pour scores)
 	int getValue() const;
 
-	// Fonctions de la classe
 	// Génère aléatoirement des nombre; utilisée pour la position du fruit
 	void generate(std::list<Point> snake, std::list<Point> obstacle, size_t maxX, size_t maxY, size_t min = 0);
 

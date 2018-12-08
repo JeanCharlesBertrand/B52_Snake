@@ -10,10 +10,6 @@ Fruit::Fruit(std::list<Point> snake, std::list<Point> obstacle, size_t maxX, siz
 	generate(snake, obstacle, maxX, maxY);
 }
 
-Fruit::~Fruit()
-{
-}
-
 Point Fruit::getPoint() const
 {
 	return mPoint;

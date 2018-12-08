@@ -8,10 +8,6 @@ FSM::FSM()
 {
 }
 
-FSM::~FSM()
-{
-}
-
 FSM::GAMESTATE FSM::getCurrentState()
 {
 	return mCurrentState;
@@ -168,6 +164,8 @@ void FSM::executeState(Player &player)
 		break;
 	case GAMESTATE::ONGAME:
 		engine(player);
+
+		// Vérifie si on doit changer de niveau ou faire un Game Over
 		if (player.getLives() > 0) {
 			mCurrentState = GAMESTATE::START;
 			executeState(player);

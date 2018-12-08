@@ -1,5 +1,5 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// File name :		Player.h
+// File name :		SnakeGame.h
 // Creation :		2018-11-30
 // Author :			Jean-Charles Bertrand
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -22,7 +22,6 @@ private:
 public:
 	SnakeGame();
 	void go();
-	~SnakeGame();
 };
 
 #endif // SNAKEGAME_H

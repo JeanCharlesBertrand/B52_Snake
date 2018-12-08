@@ -19,12 +19,11 @@ private:
 	size_t mY;
 
 public:
-	// Constructeur et Destructeur
+	// Constructeur
 	Point();
 	Point(size_t x, size_t y);
-	~Point();
 
-	// Fonctions d'accès et de mutation
+	// Fonctions
 	// Retourne la position mX de l'objet
 	size_t getX();
 
